@@ -40,3 +40,10 @@ via a PHP interface, and at the same time not enforce a setter onto the implemen
 7. This also means that the containers can compliment one another.
 
     Or, the order of [definition "matching"](https://github.com/XedinUnknown/di/blob/master/src/AbstractCompositeContainer.php#L66) on containers can be reversed, in which case definitions added later will "override" those added earlier.
+
+This approach is compliant with the standard proposed in [`container-interop`](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup-meta.md#41-chosen-approach):
+- The container implementing this feature will implement `ContainerInterface` - because it's a container. Duh.
+- It will provide a way to register a delegate container - as its parent. Because it wants to delegate. How it does that - is irrelevant, as long as it can return a reference to that parent.
+- The *delegate container*, when its `get()` method is called, will return the service only if it's part of the container - because [it's the law](https://github.com/container-interop/container-interop/blob/master/src/Interop/Container/ContainerInterface.php#L21).
+- The *delegate container's* `has()` method will only return true if the entry is part of the container - because [it's the law](https://github.com/container-interop/container-interop/blob/master/src/Interop/Container/ContainerInterface.php#L30) too.
+- If the entry we are fetching has dependencies, the lookup is performed on the delegate container - because the composite container performs lookups on its children, **instead** of itself.
