@@ -12,6 +12,24 @@ via a PHP interface, and at the same time not enforce a setter onto the implemen
 - Unlimited level of nesting;
 - Children of composite containers are services - same retrieval and caching logic everywhere.
 
+### Disadvantages
+- Can only add children to composite containers. 
+
+What seems to be the [composite container spec](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup-meta.md)
+suggests that the composite container does not provide services in the normal sense.
+Instead, it queries child containers only, and never queries itself.
+This means that in order to add another level of nesting, one would have to
+replace the existing non-composite container in the hierarchy with a composite one.
+This does not appear to be a real problem, because for services (and, if properly
+used, for any other consumer) the container hierarchy is transparent - all
+consumers would query the top-most container, being unaware of any underlying implementation. 
+
+Furthermore, my implementation demonstrates how to create a composite container
+that uses the same logic for children as for services - by storing children
+*as* services. This could potentially allow mixing both. However, this could
+have the drawback of requiring the composite container implementation to sort
+it's services by "`ContainerInterface` first".
+
 ### How it works
 1. The container that needs to delegate lookup implements [`ParentAwareContainerInterface`](https://github.com/XedinUnknown/di/blob/master/src/ParentAwareContainerInterface.php#L8).
 
