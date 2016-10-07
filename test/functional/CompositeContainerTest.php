@@ -25,7 +25,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
 
     public function createServiceProvider($definitions)
     {
-        return new Di\ServiceProvier($definitions);
+        return new Di\ServiceProvider($definitions);
     }
 
     /**

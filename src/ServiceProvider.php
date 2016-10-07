@@ -7,7 +7,7 @@ use Interop\Container\ServiceProvider as ServiceProviderInterface;
 /**
  * Generic standards-compliant immutable DI service provider.
  */
-class ServiceProvier extends AbstractServiceProvider implements ServiceProviderInterface
+class ServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
 {
     /**
      * @param callable[]|\Traversable $definitions A list of definitions for this provider.

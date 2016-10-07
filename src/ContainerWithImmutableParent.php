@@ -3,7 +3,7 @@
 namespace XedinUnknown\Di;
 
 use Interop\Container\ContainerInterface;
-use Interop\Container\ServiceProvider;
+use Interop\Container\ServiceProvider as ServiceProviderInterface;
 
 /**
  * This container accepts a parent instance, which cannot be changed from outside.
@@ -13,10 +13,10 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     ParentAwareContainerInterface
 {
     /**
-     * @param ServiceProvider    $definitions Servide definitions to add to this container.
+     * @param ServiceProviderInterface    $definitions Servide definitions to add to this container.
      * @param ContainerInterface $parent      The container, which is to become this container's parent.
      */
-    public function __construct(ServiceProvider $definitions = null, ContainerInterface $parent = null)
+    public function __construct(ServiceProviderInterface $definitions = null, ContainerInterface $parent = null)
     {
         if (!is_null($definitions)) {
             $this->_set($definitions);
