@@ -16,7 +16,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      */
     protected function _add(ContainerInterface $container)
     {
-        $this->_set($this->_createContainerId($container), function (ContainerInterface $container, $previous = null) use ($container) {
+        $this->_set($this->_createContainerId($container), function (ContainerInterface $c, $previous = null) use ($container) {
             return $container;
         });
 
