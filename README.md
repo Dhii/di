@@ -9,7 +9,8 @@ via a PHP interface, and at the same time not enforce a setter onto the implemen
 - Standards-compliant;
 - One interface with one method - all that you need to delegate;
 - Lookup logic up to composite container implementation;
-- Unlimited level of nesting.
+- Unlimited level of nesting;
+- Children of composite containers are services - same retrieval and caching logic everywhere.
 
 ### How it works
 1. The container that needs to delegate lookup implements [`ParentAwareContainerInterface`](https://github.com/XedinUnknown/di/blob/master/src/ParentAwareContainerInterface.php#L8).
