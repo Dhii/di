@@ -1,0 +1,28 @@
+{
+    "name": "xedinunknown/di",
+    "description": "Dependency Injection implementation",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Ukhanev",
+            "email": "xedin.unknown@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^5.3 | ^7.0",
+        "container-interop/container-interop": "^1.1",
+        "container-interop/service-provider": "^0.3"
+    },
+    "require-dev": {
+        "dhii/php-cs-fixer-config": "dev-php-5.3",
+        "phpunit/phpunit": "^4.8",
+        "ptrofimov/xpmock": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "XedinUnknown\\Di\\": "src/"
+        }
+    }
+}
