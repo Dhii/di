@@ -77,24 +77,41 @@ abstract class AbstractContainer
     }
 
     /**
-     * Resolves a service definition into a service instance.
+     * Checks if a service ID exists in this container.
      *
      * @since [*next-version*]
      *
-     * @param callable $definition The service definition.
-     * @param array    $config     An array of configuration arguments to pass to the definition.
-     *
-     * @throws ContainerException If the service definition is not a valid callable.
-     *
-     * @return mixed The service, to which the definition resolves.
+     * @return bool True if a definition with the specified ID exists in this container;
+     *              false otherwise.
      */
-    protected function _resolveDefinition($definition, $config)
+    protected function _has($id)
     {
-        if (!is_callable($definition)) {
-            throw new ContainerException(sprintf('Could not create service for ID "%1$s": service definition must be callable', $id));
+        return $this->_hasDefinition($id);
+    }
+
+    /**
+     * Registers a service or multiple services to this container.
+     *
+     * @since [*next-version*]
+     *
+     * @param string|ServiceProvider $id         The service ID, or a service provider
+     * @param callable|null          $definition The service definition.
+     *
+     * @return $this This instance.
+     */
+    protected function _set($id, $definition = null)
+    {
+        if ($id instanceof ServiceProvider) {
+            foreach ($id->getServices() as $_id => $_definition) {
+                $this->_setDefinition($_id, $_definition);
+            }
+
+            return $this;
         }
 
-        return call_user_func_array($definition, array($this, null, $config));
+        $this->_setDefinition($id, $definition);
+
+        return $this;
     }
 
     /**
@@ -127,19 +144,6 @@ abstract class AbstractContainer
     }
 
     /**
-     * Checks if a service ID exists in this container.
-     *
-     * @since [*next-version*]
-     *
-     * @return bool True if a definition with the specified ID exists in this container;
-     *              false otherwise.
-     */
-    protected function _has($id)
-    {
-        return $this->_hasDefinition($id);
-    }
-
-    /**
      * Checks if a service definition is registered to a given ID.
      *
      * @since [*next-version*]
@@ -152,6 +156,37 @@ abstract class AbstractContainer
     protected function _hasDefinition($id)
     {
         return isset($this->serviceDefinitions[$id]);
+    }
+
+    /**
+     * Registers a service definition.
+     *
+     * @since [*next-version*]
+     *
+     * @param string   $id         The service ID.
+     * @param callable $definition The service definition.
+     */
+    protected function _setDefinition($id, $definition)
+    {
+        $this->serviceDefinitions[$id] = $definition;
+
+        return $this;
+    }
+
+    /**
+     * Retrieves the cached instance of a service.
+     *
+     * @since [*next-version*]
+     *
+     * @param string $id The ID of the service to retrieve.
+     *
+     * @return mixed|null The cached service instance if found; otherwise null.
+     */
+    protected function _getCached($id)
+    {
+        return isset($this->serviceCache[$id])
+                ? $this->serviceCache[$id]
+                : null;
     }
 
     /**
@@ -186,58 +221,23 @@ abstract class AbstractContainer
     }
 
     /**
-     * Retrieves the cached instance of a service.
+     * Resolves a service definition into a service instance.
      *
      * @since [*next-version*]
      *
-     * @param string $id The ID of the service to retrieve.
+     * @param callable $definition The service definition.
+     * @param array    $config     An array of configuration arguments to pass to the definition.
      *
-     * @return mixed|null The cached service instance if found; otherwise null.
+     * @throws ContainerException If the service definition is not a valid callable.
+     *
+     * @return mixed The service, to which the definition resolves.
      */
-    protected function _getCached($id)
+    protected function _resolveDefinition($definition, $config)
     {
-        return isset($this->serviceCache[$id])
-                ? $this->serviceCache[$id]
-                : null;
-    }
-
-    /**
-     * Registers a service or multiple services to this container.
-     *
-     * @since [*next-version*]
-     *
-     * @param string|ServiceProvider $id         The service ID, or a service provider
-     * @param callable|null          $definition The service definition.
-     *
-     * @return $this This instance.
-     */
-    protected function _set($id, $definition = null)
-    {
-        if ($id instanceof ServiceProvider) {
-            foreach ($id->getServices() as $_id => $_definition) {
-                $this->_setDefinition($_id, $_definition);
-            }
-
-            return $this;
+        if (!is_callable($definition)) {
+            throw new ContainerException(sprintf('Could not create service for ID "%1$s": service definition must be callable', $id));
         }
 
-        $this->_setDefinition($id, $definition);
-
-        return $this;
-    }
-
-    /**
-     * Registers a service definition.
-     *
-     * @since [*next-version*]
-     *
-     * @param string   $id         The service ID.
-     * @param callable $definition The service definition.
-     */
-    protected function _setDefinition($id, $definition)
-    {
-        $this->serviceDefinitions[$id] = $definition;
-
-        return $this;
+        return call_user_func_array($definition, array($this, null, $config));
     }
 }
