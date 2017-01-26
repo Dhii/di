@@ -102,14 +102,30 @@ abstract class AbstractContainer
     protected function _set($id, $definition = null)
     {
         if ($id instanceof ServiceProvider) {
-            foreach ($id->getServices() as $_id => $_definition) {
-                $this->_setDefinition($_id, $_definition);
-            }
+            $this->_setFromProvider($id);
 
             return $this;
         }
 
         $this->_setDefinition($id, $definition);
+
+        return $this;
+    }
+
+    /**
+     * Registers the services given by a service provider.
+     *
+     * @since [*next-version*]
+     *
+     * @param ServiceProvider $provider The service provider.
+     *
+     * @return $this This instance.
+     */
+    protected function _setFromProvider(ServiceProvider $provider)
+    {
+        foreach ($provider->getServices() as $_id => $_definition) {
+            $this->_setDefinition($_id, $_definition);
+        }
 
         return $this;
     }
