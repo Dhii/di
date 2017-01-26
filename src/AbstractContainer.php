@@ -155,8 +155,8 @@ abstract class AbstractContainer
     protected function _getDefinition($id)
     {
         return isset($this->serviceDefinitions[$id])
-                ? $this->serviceDefinitions[$id]
-                : null;
+            ? $this->serviceDefinitions[$id]
+            : null;
     }
 
     /**
@@ -201,8 +201,8 @@ abstract class AbstractContainer
     protected function _getCached($id)
     {
         return isset($this->serviceCache[$id])
-                ? $this->serviceCache[$id]
-                : null;
+            ? $this->serviceCache[$id]
+            : null;
     }
 
     /**

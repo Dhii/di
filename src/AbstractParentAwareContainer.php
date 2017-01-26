@@ -29,9 +29,9 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      */
     protected function _getParentContainer()
     {
-        return ($this->parentContainer instanceof ContainerInterface)
-                ? $this->parentContainer
-                : null;
+        return ($this->_hasParentContainer())
+            ? $this->parentContainer
+            : null;
     }
 
     /**
