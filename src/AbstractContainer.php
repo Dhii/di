@@ -56,7 +56,7 @@ abstract class AbstractContainer
     /**
      * Creates a new instance of a service.
      *
-     * This can be exposed by a public method to implement {@see FactoryInterface}.
+     * This can be exposed by a public method to implement FactoryInterface.
      *
      * @todo Check why return doc includes a `null` possibility.
      *
@@ -77,6 +77,15 @@ abstract class AbstractContainer
     }
 
     /**
+     * Resolves a service definition into a service instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param callable $definition The service definition.
+     * @param array    $config     An array of configuration arguments to pass to the definition.
+     *
+     * @throws ContainerException If the service definition is not a valid callable.
+     *
      * @return mixed The service, to which the definition resolves.
      */
     protected function _resolveDefinition($definition, $config)
@@ -101,9 +110,14 @@ abstract class AbstractContainer
     }
 
     /**
+     * Retrieves a service definition by ID.
+     *
+     * @since [*next-version*]
+     *
      * @param string $id The ID of the service to get the definition for.
      *
-     * @return callable|null The service definition, if registered; otherwise false.
+     * @return callable|null The service definition mapped to the given ID, if the ID is registered;
+     *                       otherwise null.
      */
     protected function _getDefinition($id)
     {
@@ -113,6 +127,10 @@ abstract class AbstractContainer
     }
 
     /**
+     * Checks if a service ID exists in this container.
+     *
+     * @since [*next-version*]
+     *
      * @return bool True if a definition with the specified ID exists in this container;
      *              false otherwise.
      */
@@ -125,6 +143,7 @@ abstract class AbstractContainer
      * Checks if a service definition is registered to a given ID.
      *
      * @since [*next-version*]
+     *
      * @param string $id The ID of the service definition to check for.
      *
      * @return bool True if a definition with the specified ID is registered;
@@ -136,6 +155,10 @@ abstract class AbstractContainer
     }
 
     /**
+     * Checks if a service instance is cached.
+     *
+     * @since [*next-version*]
+     *
      * @param string $id The service ID to check.
      *
      * @return bool True if a service with this ID exists in cache; false otherwise.
@@ -146,8 +169,14 @@ abstract class AbstractContainer
     }
 
     /**
+     * Caches a service instance.
+     *
+     * @since [*next-version*]
+     *
      * @param string $id      The ID of the service to cache.
      * @param mixed  $service The service.
+     *
+     * @return $this This instance.
      */
     protected function _cacheService($id, $service)
     {
@@ -157,9 +186,13 @@ abstract class AbstractContainer
     }
 
     /**
+     * Retrieves the cached instance of a service.
+     *
+     * @since [*next-version*]
+     *
      * @param string $id The ID of the service to retrieve.
      *
-     * @return mixed|null The cached service if found; otherwise null.
+     * @return mixed|null The cached service instance if found; otherwise null.
      */
     protected function _getCached($id)
     {
@@ -169,8 +202,14 @@ abstract class AbstractContainer
     }
 
     /**
+     * Registers a service or multiple services to this container.
+     *
+     * @since [*next-version*]
+     *
      * @param string|ServiceProvider $id         The service ID, or a service provider
      * @param callable|null          $definition The service definition.
+     *
+     * @return $this This instance.
      */
     protected function _set($id, $definition = null)
     {
@@ -188,6 +227,10 @@ abstract class AbstractContainer
     }
 
     /**
+     * Registers a service definition.
+     *
+     * @since [*next-version*]
+     *
      * @param string   $id         The service ID.
      * @param callable $definition The service definition.
      */
