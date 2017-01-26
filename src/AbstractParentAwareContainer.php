@@ -54,18 +54,14 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      */
     protected function _getRootContainer()
     {
-        $parent = $this->_getParentContainer();
-        $root   = $parent;
+        $parent = $this;
+        do {
+            $root = $parent;
 
-        while ($parent) {
-            if (!($parent instanceof ParentAwareContainerInterface)) {
-                break;
-            }
-
-            if ($parent = $parent->getParentContainer()) {
-                $root = $parent;
-            }
-        }
+            $parent = ($parent instanceof ParentAwareContainerInterface)
+                ? $parent->getParentContainer()
+                : null;
+        } while ($parent);
 
         return $root;
     }
