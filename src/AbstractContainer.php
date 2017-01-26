@@ -48,8 +48,7 @@ abstract class AbstractContainer
             return $this->_getCached($id);
         }
 
-        $service = $this->_make($id);
-        $this->_cacheService($id, $service);
+        $this->_cacheService($id, $this->_make($id));
 
         return $this->_getCached($id);
     }
