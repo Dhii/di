@@ -2,17 +2,30 @@
 
 namespace Dhii\Di;
 
+use Dhii\Di\Exception\ContainerException;
+use Interop\Container\ServiceProvider;
+
 /**
- * Description of AbstractServiceProvider.
+ * Abstract implementation of an object that can provide services.
  *
- * @author Xedin Unknown
+ * @since [*next-version*]
  */
 abstract class AbstractServiceProvider
 {
+    /**
+     * The service definitions.
+     *
+     * @since [*next-version*]
+     *
+     * @var callable[]
+     */
     protected $serviceDefinitions = array();
 
     /**
-     * @see \Interop\Container\ServiceProvider::getServices()
+     * Gets the service definitions.
+     *
+     * @since [*next-version*]
+     * @see ServiceProvider::getServices()
      *
      * @return callable[]|\Traversable A list of service definitions.
      */
@@ -23,6 +36,8 @@ abstract class AbstractServiceProvider
 
     /**
      * Adds a service definition to this provider.
+     *
+     * @since [*next-version*]
      *
      * @param string   $id         The ID of the service definition.
      * @param callable $definition The service definition.

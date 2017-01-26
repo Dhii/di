@@ -6,14 +6,26 @@ use Interop\Container\ContainerInterface;
 
 /**
  * Functionality that facilitates parent awareness of a container.
+ *
+ * @since [*next-version*]
  */
 abstract class AbstractParentAwareContainer extends AbstractContainer
 {
-    /** @var ContainerInterface */
+    /**
+     * The parent container instance.
+     *
+     * @since [*next-version*]
+     *
+     * @var ContainerInterface
+     */
     protected $parentContainer;
 
     /**
-     * @return ContainerInterface
+     * Retrieves the parent container instance.
+     *
+     * @since [*next-version*]
+     *
+     * @return ContainerInterface|null The parent container or null if this container has no parent.
      */
     protected function _getParentContainer()
     {
@@ -33,8 +45,12 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     }
 
     /**
+     * Retrieves the container at the root of the hierarchy.
+     *
+     * @since [*next-version*]
+     *
      * @return ContainerInterface|null The top-most container in the chain, if exists;
-     *                                 false otherwise.
+     *                                 null otherwise.
      */
     protected function _getRootContainer()
     {
@@ -55,8 +71,11 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     }
 
     /**
+     * {@inheritdoc}
+     *
      * This is what does the magic.
      *
+     * @since [*next-version*]
      * @see AbstractContainer::_resolveDefinition()
      */
     protected function _resolveDefinition($definition, $config)

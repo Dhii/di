@@ -5,9 +5,9 @@ namespace Dhii\Di;
 use Interop\Container\ContainerInterface;
 
 /**
- * Description of CompositeContainer.
+ * Concrete implementation of a container that cna have child containers.
  *
- * @author Xedin Unknown
+ * @since [*next-version*]
  */
 class CompositeContainer extends AbstractCompositeContainer implements
     ContainerInterface,
@@ -15,6 +15,10 @@ class CompositeContainer extends AbstractCompositeContainer implements
     CompositeContainerInterface
 {
     /**
+     * Constructor.
+     *
+     * @since [*next-version*]
+     *
      * @param ContainerInterface $parent The parent container of this instance.
      */
     public function __construct(ContainerInterface $parent = null)
@@ -26,6 +30,8 @@ class CompositeContainer extends AbstractCompositeContainer implements
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function get($id)
     {
@@ -34,6 +40,8 @@ class CompositeContainer extends AbstractCompositeContainer implements
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function has($id)
     {
@@ -42,6 +50,8 @@ class CompositeContainer extends AbstractCompositeContainer implements
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function getParentContainer()
     {
@@ -50,6 +60,8 @@ class CompositeContainer extends AbstractCompositeContainer implements
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function getContainers()
     {
@@ -57,9 +69,15 @@ class CompositeContainer extends AbstractCompositeContainer implements
     }
 
     /**
+     * Adds a child container.
+     *
+     * @since [*next-version*]
+     *
      * @param ContainerInterface $container The container to add.
+     *
+     * @return $this This instance.
      */
-    public function add($container)
+    public function add(ContainerInterface $container)
     {
         $this->_add($container);
 

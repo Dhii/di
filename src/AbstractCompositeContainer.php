@@ -6,13 +6,26 @@ use Interop\Container\ContainerInterface;
 
 /**
  * A container that can have many containers.
+ *
+ * @since [*next-version*]
  */
 abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 {
+    /**
+     * The prefix for container IDs.
+     *
+     * @since [*next-version*]
+     */
     const CONTAINER_ID_PREFIX = 'container-';
 
     /**
+     * Adds a container.
+     *
+     * @since [*next-version*]
+     *
      * @param ContainerInterface $container The container to add.
+     *
+     * @return $this This instance.
      */
     protected function _add(ContainerInterface $container)
     {
@@ -24,7 +37,13 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     }
 
     /**
-     * @param ContainerInterface $container
+     * Generates a container ID.
+     *
+     * @todo To check if the $container instance should play a part in ID generation.
+     *
+     * @since [*next-version*]
+     *
+     * @param ContainerInterface $container The container for which an ID will be generated.
      *
      * @return string A new container ID, guaranteed to be unique in the scope of this container.
      */
@@ -39,6 +58,8 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 
     /**
      * Retrieves a service from the first child container that has its definition.
+     *
+     * @since [*next-version*]
      *
      * @param string $id The ID of the service to retrieve.
      *
@@ -55,6 +76,8 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 
     /**
      * Determines which of the child containers has a service with the specified ID.
+     *
+     * @since [*next-version*]
      *
      * @param string $id The ID of the service to check for.
      *
@@ -73,6 +96,9 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     }
 
     /**
+     * Gets the child containers.
+     *
+     * @since [*next-version*]
      * @see CompositeContainerInterface::getContainers()
      *
      * @return ContainerInterface[]|\Traversable A list of containers.

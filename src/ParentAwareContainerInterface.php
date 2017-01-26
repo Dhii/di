@@ -2,8 +2,14 @@
 
 namespace Dhii\Di;
 
+use Interop\Container\ContainerInterface;
+
 /**
- * Formalized contract of containers that can delegate lookup.
+ * A container that can have a parent container.
+ *
+ * This interface is often used to delegate lookup.
+ *
+ * @since [*next-version*]
  */
 interface ParentAwareContainerInterface
 {

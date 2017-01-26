@@ -6,15 +6,21 @@ use Interop\Container\ContainerInterface;
 use Interop\Container\ServiceProvider as ServiceProviderInterface;
 
 /**
- * This container accepts a parent instance, which cannot be changed from outside.
+ * This container accepts a parent instance, which cannot be changed from external objects.
+ *
+ * @since [*next-version*]
  */
 class ContainerWithImmutableParent extends AbstractParentAwareContainer implements
     ContainerInterface,
     ParentAwareContainerInterface
 {
     /**
-     * @param ServiceProviderInterface    $definitions Servide definitions to add to this container.
-     * @param ContainerInterface $parent      The container, which is to become this container's parent.
+     * Constructor.
+     *
+     * @since [*next-version*]
+     *
+     * @param ServiceProviderInterface $definitions Service definitions to add to this container.
+     * @param ContainerInterface       $parent      The container, which is to become this container's parent.
      */
     public function __construct(ServiceProviderInterface $definitions = null, ContainerInterface $parent = null)
     {
@@ -29,6 +35,8 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function getParentContainer()
     {
@@ -37,6 +45,8 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function get($id)
     {
@@ -45,6 +55,8 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
 
     /**
      * {@inheritdoc}
+     *
+     * @since [*next-version*]
      */
     public function has($id)
     {

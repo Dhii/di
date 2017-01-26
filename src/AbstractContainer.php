@@ -2,22 +2,45 @@
 
 namespace Dhii\Di;
 
+use Dhii\Di\Exception\ContainerException;
+use Dhii\Di\Exception\NotFoundException;
 use Interop\Container\ServiceProvider;
 
 /**
  * Basic functionality of a DI container.
+ *
+ * @since [*next-version*]
  */
 abstract class AbstractContainer
 {
-    /** @var mixed[] */
+    /**
+     * Cache for created service instances.
+     *
+     * @since [*next-version*]
+     *
+     * @var array
+     */
     protected $serviceCache = array();
-    /** @var callable[] */
+
+    /**
+     * The service definitions.
+     *
+     * @since [*next-version*]
+     *
+     * @var callable[]
+     */
     protected $serviceDefinitions = array();
 
     /**
-     * @param string ID The ID of the service to get.
+     * Retrieves a service by its ID.
      *
-     * @return mixed The service identified by ID.
+     * @since [*next-version*]
+     *
+     * @param string ID The ID of the service to retrieve.
+     *
+     * @throws NotFoundException If no service is registered with the given ID.
+     *
+     * @return mixed The service identified by the given ID.
      */
     protected function _get($id)
     {
@@ -34,12 +57,16 @@ abstract class AbstractContainer
     /**
      * Creates a new instance of a service.
      *
-     * In the future, this could be exposed by a public method to implement FactoryInterface.
+     * This can be exposed by a public method to implement {@see FactoryInterface}.
+     *
+     * @todo Check why return doc includes a `null` possibility.
      *
      * @param string $id     The ID of the service to create.
      * @param mixed  $config Some kind of configuration.
      *
-     * @return object|null
+     * @throws NotFoundException If no service is registered with the given ID.
+     *
+     * @return object|null The created service instance.
      */
     protected function _make($id, $config = array())
     {
@@ -63,7 +90,11 @@ abstract class AbstractContainer
     }
 
     /**
-     * @return callable[] All definitions registered with this instance, by ID.
+     * Retrieves the service definitions.
+     *
+     * @since [*next-version*]
+     *
+     * @return callable[] An associative array of all the registered definitions, mapped by their ID.
      */
     protected function _getDefinitions()
     {
@@ -92,6 +123,9 @@ abstract class AbstractContainer
     }
 
     /**
+     * Checks if a service definition is registered to a given ID.
+     *
+     * @since [*next-version*]
      * @param string $id The ID of the service definition to check for.
      *
      * @return bool True if a definition with the specified ID is registered;
