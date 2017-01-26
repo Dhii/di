@@ -35,7 +35,18 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     }
 
     /**
-     * @param ContainerInterface $container
+     * Checks if this container has a parent container.
+     *
+     * @since [*next-version*]
+     *
+     * @return bool True if this container has a parent; false otherwise.
+     */
+    protected function _hasParentContainer()
+    {
+        return $this->parentContainer instanceof ContainerInterface;
+    }
+
+    /**
      */
     protected function _setParentContainer(ContainerInterface $container)
     {
