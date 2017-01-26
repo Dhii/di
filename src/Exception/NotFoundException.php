@@ -1,6 +1,6 @@
 <?php
 
-namespace XedinUnknown\Di;
+namespace Dhii\Di\Exception;
 
 use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
 
