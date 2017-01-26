@@ -48,7 +48,9 @@ abstract class AbstractServiceProvider
     {
         // Checking only format, because the definition may become available later
         if (!is_callable($definition, true)) {
-            throw new ContainerException(sprintf('Could not add service definition with ID "%1$s": The definition must be a callable'));
+            throw new ContainerException(
+                sprintf('Could not add service definition with ID "%1$s": The definition must be a callable', $id)
+            );
         }
 
         $this->serviceDefinitions[$id] = $definition;
