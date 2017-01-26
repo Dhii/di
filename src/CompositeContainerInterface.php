@@ -1,6 +1,6 @@
 <?php
 
-namespace XedinUnknown\Di;
+namespace Dhii\Di;
 
 /**
  * Something that can act as a composite container.

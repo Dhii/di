@@ -1,6 +1,6 @@
 <?php
 
-namespace XedinUnknown\Di;
+namespace Dhii\Di;
 
 /**
  * Common public functionality.

@@ -1,6 +1,6 @@
 <?php
 
-namespace XedinUnknown\Di;
+namespace Dhii\Di;
 
 /**
  * Formalized contract of containers that can delegate lookup.
