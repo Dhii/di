@@ -67,11 +67,11 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      */
     protected function _getDelegated($id)
     {
-        if ($having = $this->_hasDelegated($id)) {
-            return $having->get($id);
-        }
+        $having = $this->_hasDelegated($id);
 
-        return;
+        return ($having)
+            ? $having->get($id)
+            : null;
     }
 
     /**
