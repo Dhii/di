@@ -23,9 +23,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
      */
     public function __construct(ContainerInterface $parent = null)
     {
-        if (!is_null($parent)) {
-            $this->_setParentContainer($parent);
-        }
+        $this->_setParentContainer($parent);
     }
 
     /**

@@ -28,9 +28,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
             $this->_set($definitions);
         }
 
-        if (!is_null($parent)) {
-            $this->_setParentContainer($parent);
-        }
+        $this->_setParentContainer($parent);
     }
 
     /**
