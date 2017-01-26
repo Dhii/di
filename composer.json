@@ -1,12 +1,12 @@
 {
-    "name": "xedinunknown/di",
-    "description": "Dependency Injection implementation",
+    "name": "dhii/di",
+    "description": "A DI container implementation",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Anton Ukhanev",
-            "email": "xedin.unknown@gmail.com"
+            "name": "Dhii Team",
+            "email": "development@dhii.co"
         }
     ],
     "minimum-stability": "dev",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "XedinUnknown\\Di\\": "src/"
+            "Dhii\\Di\\": "src/"
         }
     }
 }
