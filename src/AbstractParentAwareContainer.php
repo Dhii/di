@@ -47,8 +47,15 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     }
 
     /**
+     * Sets the parent container instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param ContainerInterface|null $container The parent container or null to remove the parent. Default: null
+     *
+     * @return $this This instance.
      */
-    protected function _setParentContainer(ContainerInterface $container)
+    protected function _setParentContainer(ContainerInterface $container = null)
     {
         $this->parentContainer = $container;
 
