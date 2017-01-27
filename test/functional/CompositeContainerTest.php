@@ -1,13 +1,13 @@
 <?php
 
-namespace XedinUnknown\Di\FuncTest;
+namespace Dhii\Di\FuncTest;
 
-use XedinUnknown\Di;
+use Dhii\Di;
 use Interop\Container\ContainerInterface;
 use Interop\Container\ServiceProvider;
 
 /**
- * Tests {@see \XedinUnknown\Di\CompositeContainer} and related classes.
+ * Tests {@see \Dhii\Di\CompositeContainer} and related classes.
  */
 class CompositeContainerTest extends \Xpmock\TestCase
 {
@@ -17,7 +17,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
      */
     public function createInstance(ContainerInterface $parent = null)
     {
-        $mock = $this->mock('XedinUnknown\\Di\\CompositeContainer')
+        $mock = $this->mock('Dhii\\Di\\CompositeContainer')
                 ->new($parent);
 
         return $mock;
@@ -34,8 +34,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
     public function createContainer(ServiceProvider $definitions, ContainerInterface $parent = null, $isMutable = true)
     {
         $className = $isMutable
-                ? 'XedinUnknown\\Di\\ContainerWithMutableParent'
-                : 'XedinUnknown\\Di\\ContainerWithImmutableParent';
+                ? 'Dhii\\Di\\ContainerWithMutableParent'
+                : 'Dhii\\Di\\ContainerWithImmutableParent';
         $mock = $this->mock($className)
                 ->new($definitions, $parent);
 
@@ -57,7 +57,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
 
     /**
      * Tests whether services of child containers can be correctly retrieved from parent.
-     * No relationshipts between services.
+     * No relationships between services.
      */
     public function testOneLevelRetrieval()
     {
@@ -106,7 +106,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer1 = $this->createContainer(
             $this->createServiceProvider(array(
                 'service1'          => function (ContainerInterface $container) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $container, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $container, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-1', $container->get('service3')));
                 },
                 'service2'          => $this->createDefinition('service-2'),
@@ -157,11 +157,11 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $this->createServiceProvider(array(
                 'service1'          => $this->createDefinition('service-1'),
                 'service2'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-2', $c->get('service3')));
                 },
                 'service7'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-7', $c->get('service4')));
                 }
             )), // Servide definitions
@@ -174,7 +174,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $this->createServiceProvider(array(
                 'service3'          => $this->createDefinition('service-3'),
                 'service4'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-4', $c->get('service5')));
                 }
             )), // Servide definitions
@@ -188,7 +188,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer3->add($this->createContainer(
             $this->createServiceProvider(array(
                 'service5'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-5', $c->get('service8')));
                 },
                 'service6'          => $this->createDefinition('service-6')
@@ -199,11 +199,11 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer3->add($this->createContainer(
             $this->createServiceProvider(array(
                 'service8'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-8', $c->get('service1')));
                 },
                 'service9'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-9', $c->get('service6')));
                 }
             )),
