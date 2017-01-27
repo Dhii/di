@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4402aefa0b88b308e56cd7d084f4ede1",
-    "content-hash": "c2e95b9808143656a3d91312237bf06c",
+    "hash": "02946f281396d25ab45288e91158b9c1",
+    "content-hash": "132fa7526fe5d5a7135df065766b1c58",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -71,12 +71,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/di-abstract.git",
-                "reference": "bbf80f23f22179425cc38528dfba6d99b0570926"
+                "reference": "20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/di-abstract/zipball/bbf80f23f22179425cc38528dfba6d99b0570926",
-                "reference": "bbf80f23f22179425cc38528dfba6d99b0570926",
+                "url": "https://api.github.com/repos/Dhii/di-abstract/zipball/20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec",
+                "reference": "20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec",
                 "shasum": ""
             },
             "require": {
@@ -95,6 +95,7 @@
                     "Dhii\\Di\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -105,11 +106,7 @@
                 }
             ],
             "description": "Base abstract classes for DI container implementations",
-            "support": {
-                "source": "https://github.com/Dhii/di-abstract/tree/master",
-                "issues": "https://github.com/Dhii/di-abstract/issues"
-            },
-            "time": "2017-01-27 11:58:53"
+            "time": "2017-01-27 15:35:43"
         },
         {
             "name": "dhii/di-interface",
