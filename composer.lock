@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ee5c4f3ecc24b7768af8f516af7c6fcc",
-    "content-hash": "6126e1adddd074db507d2e53ec32e81a",
+    "hash": "4402aefa0b88b308e56cd7d084f4ede1",
+    "content-hash": "c2e95b9808143656a3d91312237bf06c",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -64,6 +64,98 @@
             "description": "Promoting container interoperability through standard service providers",
             "homepage": "https://github.com/container-interop/service-provider",
             "time": "2016-05-16 07:42:22"
+        },
+        {
+            "name": "dhii/di-abstract",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/di-abstract.git",
+                "reference": "bbf80f23f22179425cc38528dfba6d99b0570926"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/di-abstract/zipball/bbf80f23f22179425cc38528dfba6d99b0570926",
+                "reference": "bbf80f23f22179425cc38528dfba6d99b0570926",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "^1.1",
+                "container-interop/service-provider": "^0.3",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Di\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Base abstract classes for DI container implementations",
+            "support": {
+                "source": "https://github.com/Dhii/di-abstract/tree/master",
+                "issues": "https://github.com/Dhii/di-abstract/issues"
+            },
+            "time": "2017-01-27 11:58:53"
+        },
+        {
+            "name": "dhii/di-interface",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/di-interface.git",
+                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/di-interface/zipball/27bdb067239dff68b51aabdfdbe66f4dbf387e61",
+                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "^1.1",
+                "container-interop/service-provider": "^0.3",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Di\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for DI container implementations",
+            "support": {
+                "source": "https://github.com/Dhii/di-interface/tree/master",
+                "issues": "https://github.com/Dhii/di-interface/issues"
+            },
+            "time": "2017-01-27 13:11:39"
         }
     ],
     "packages-dev": [
@@ -1640,6 +1732,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "dhii/di-interface": 20,
+        "dhii/di-abstract": 20,
         "dhii/php-cs-fixer-config": 20
     },
     "prefer-stable": false,
