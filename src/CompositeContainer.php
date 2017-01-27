@@ -2,6 +2,8 @@
 
 namespace Dhii\Di;
 
+use Exception;
+
 /**
  * Concrete implementation of a container that can have child containers.
  *

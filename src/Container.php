@@ -2,9 +2,10 @@
 
 namespace Dhii\Di;
 
-use \Dhii\Di\Exception\ContainerException;
-use \Dhii\Di\Exception\NotFoundException;
-use \Interop\Container\ServiceProvider as BaseServiceProviderInterface;
+use Exception;
+use Dhii\Di\Exception\ContainerException;
+use Dhii\Di\Exception\NotFoundException;
+use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
 
 /**
  * A simple, parent-agnostic container implementation.
@@ -34,7 +35,7 @@ class Container extends AbstractContainer implements ContainerInterface
      *
      * @return ContainerException The new exception instance.
      */
-    protected function _createContainerException($message, $code = 0, \Exception $innerException = null)
+    protected function _createContainerException($message, $code = 0, Exception $innerException = null)
     {
         return new ContainerException($message, $code, $innerException);
     }
@@ -46,7 +47,7 @@ class Container extends AbstractContainer implements ContainerInterface
      *
      * @return NotFoundException The new exception instance.
      */
-    protected function _createNotFoundException($message, $code = 0, \Exception $innerException = null)
+    protected function _createNotFoundException($message, $code = 0, Exception $innerException = null)
     {
         return new NotFoundException($message, $code, $innerException);
     }

@@ -2,6 +2,7 @@
 
 namespace Dhii\Di;
 
+use Exception;
 use Interop\Container\ContainerInterface as BaseContainerInterface;
 use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
 
