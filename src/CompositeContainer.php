@@ -2,15 +2,12 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\ContainerInterface;
-
 /**
- * Concrete implementation of a container that cna have child containers.
+ * Concrete implementation of a container that can have child containers.
  *
  * @since [*next-version*]
  */
 class CompositeContainer extends AbstractCompositeContainer implements
-    ContainerInterface,
     ParentAwareContainerInterface,
     CompositeContainerInterface
 {
@@ -80,5 +77,29 @@ class CompositeContainer extends AbstractCompositeContainer implements
         $this->_add($container);
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     *
+     * @return NotFoundException The new exception instance.
+     */
+    protected function _createNotFoundException($message, $code = 0, Exception $innerException = null)
+    {
+        return new NotFoundException($message, $code, $innerException);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     *
+     * @return ContainerException The new exception instance.
+     */
+    protected function _createContainerException($message, $code = 0, Exception $innerException = null)
+    {
+        return new ContainerException($message, $code, $innerException);
     }
 }

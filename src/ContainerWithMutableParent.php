@@ -2,7 +2,7 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\ContainerInterface;
+use Interop\Container\ContainerInterface as BaseContainerInterface;
 
 /**
  * A container that can have its parent changed after initialization.
@@ -16,11 +16,11 @@ class ContainerWithMutableParent extends ContainerWithImmutableParent
      *
      * @since [*next-version*]
      *
-     * @param ContainerInterface $container The container to become this instance's parent.
+     * @param BaseContainerInterface $container The container to become this instance's parent.
      *
      * @return $this This instance.
      */
-    public function setParentContainer(ContainerInterface $container)
+    public function setParentContainer(BaseContainerInterface $container)
     {
         $this->_setParentContainer($container);
 

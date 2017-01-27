@@ -3,10 +3,15 @@
 namespace Dhii\Di\Exception;
 
 use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
+use Dhii\Di\ExceptionInterface as DiExceptionInterface;
 
 /**
  * An exception that is thrown when a service definition is not found by a DI container.
+ *
+ * @since [*next-version*]
  */
-class NotFoundException extends \Exception implements NotFoundExceptionInterface
+class NotFoundException extends \Exception implements
+    DiExceptionInterface,
+    NotFoundExceptionInterface
 {
 }

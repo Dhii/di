@@ -3,7 +3,8 @@
 namespace Dhii\Di;
 
 use Dhii\Di\Exception\NotFoundException;
-use Interop\Container\ContainerInterface;
+use Dhii\Di\Exception\ContainerException;
+use Interop\Container\ContainerInterface as BaseContainerInterface;
 
 /**
  * Common public functionality.
@@ -16,7 +17,7 @@ abstract class AbstractContainerBase
      * Checks if a service exists with a specific ID.
      *
      * @since [*next-version*]
-     * @see ContainerInterface::has()
+     * @see BaseContainerInterface::has()
      *
      * @param string $id The ID of the service to check for.
      *
@@ -31,7 +32,7 @@ abstract class AbstractContainerBase
      * Retrieves the service with a specific ID.
      *
      * @since [*next-version*]
-     * @see ContainerInterface::get()
+     * @see BaseContainerInterface::get()
      *
      * @param string $id The ID of the service to retrieve.
      *
@@ -42,5 +43,29 @@ abstract class AbstractContainerBase
     public function get($id)
     {
         return $this->_get($id);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     *
+     * @return NotFoundException The new exception instance.
+     */
+    protected function _createNotFoundException($message, $code = 0, Exception $innerException = null)
+    {
+        return new NotFoundException($message, $code, $innerException);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     *
+     * @return ContainerException The new exception instance.
+     */
+    protected function _createContainerException($message, $code = 0, Exception $innerException = null)
+    {
+        return new ContainerException($message, $code, $innerException);
     }
 }
