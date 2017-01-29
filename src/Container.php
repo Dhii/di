@@ -34,7 +34,7 @@ class Container extends AbstractContainerBase implements ContainerInterface
      * @since [*next-version*]
      *
      * @param string|ServiceProviderInterface $id         The service ID, or a service provider
-     * @param callable|null                   $definition The service definition.
+     * @param callable                        $definition The service definition.
      *
      * @return $this This instance.
      */
