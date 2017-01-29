@@ -12,7 +12,7 @@ use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
  *
  * @since [*next-version*]
  */
-class Container extends AbstractContainer implements ContainerInterface
+class Container extends AbstractContainerBase implements ContainerInterface
 {
     /**
      * Constructor.
@@ -26,50 +26,6 @@ class Container extends AbstractContainer implements ContainerInterface
         if (!is_null($definitions)) {
             $this->_set($definitions);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     *
-     * @return ContainerException The new exception instance.
-     */
-    protected function _createContainerException($message, $code = 0, Exception $innerException = null)
-    {
-        return new ContainerException($message, $code, $innerException);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     *
-     * @return NotFoundException The new exception instance.
-     */
-    protected function _createNotFoundException($message, $code = 0, Exception $innerException = null)
-    {
-        return new NotFoundException($message, $code, $innerException);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function get($id)
-    {
-        return $this->_get($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function has($id)
-    {
-        return $this->_has($id);
     }
 
     /**
