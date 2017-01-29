@@ -11,7 +11,7 @@ use Interop\Container\ContainerInterface as BaseContainerInterface;
  *
  * @since [*next-version*]
  */
-abstract class AbstractContainerBase
+abstract class AbstractContainerBase extends AbstractContainer
 {
     /**
      * Checks if a service exists with a specific ID.
