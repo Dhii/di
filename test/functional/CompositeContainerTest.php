@@ -2,34 +2,68 @@
 
 namespace Dhii\Di\FuncTest;
 
-use Dhii\Di;
+use Dhii\Di\CompositeContainer;
+use Dhii\Di\ParentAwareContainerInterface;
+use Dhii\Di\ServiceProvider as ServiceProvider2;
 use Interop\Container\ContainerInterface;
 use Interop\Container\ServiceProvider;
+use Xpmock\TestCase;
 
 /**
  * Tests {@see \Dhii\Di\CompositeContainer} and related classes.
+ *
+ * @since [*next-version*]
  */
-class CompositeContainerTest extends \Xpmock\TestCase
+class CompositeContainerTest extends TestCase
 {
     /**
+     * The class name of the test subject.
+     *
+     * @since [*next-version*]
+     */
+    const TEST_SUBJECT_CLASSNAME = 'Dhii\\Di\\CompositeContainer';
+
+    /**
+     * Creates a new instance of the test subject.
+     *
+     * @since [*next-version*]
+     *
      * @param ContainerInterface $parent The container, which is to become this container's parent.
-     * @return Di\CompositeContainer
+     *
+     * @return CompositeContainer
      */
     public function createInstance(ContainerInterface $parent = null)
     {
-        $mock = $this->mock('Dhii\\Di\\CompositeContainer')
+        $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME)
                 ->new($parent);
 
         return $mock;
     }
 
+    /**
+     * Creates a new service provider instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param array $definitions An array of service definitions.
+     *
+     * @return ServiceProvider2
+     */
     public function createServiceProvider($definitions)
     {
-        return new Di\ServiceProvider($definitions);
+        return new ServiceProvider2($definitions);
     }
 
     /**
-     * @return Di\ParentAwareContainerInterface
+     * Creates a new container instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param ServiceProvider $definitions The service provider.
+     * @param ContainerInterface $parent The container instance which is the be the parent container.
+     * @param bool isMutable If true, the container will have its parent container be mutable; immutable if false.
+     *
+     * @return ParentAwareContainerInterface
      */
     public function createContainer(ServiceProvider $definitions, ContainerInterface $parent = null, $isMutable = true)
     {
@@ -45,7 +79,10 @@ class CompositeContainerTest extends \Xpmock\TestCase
     /**
      * Create a service definition that returns a simple value.
      *
+     * @since [*next-version*]
+     *
      * @param mixed $value The value that the service definition will return.
+     *
      * @return callable A service definition that will return the given value.
      */
     public function createDefinition($value)
@@ -58,6 +95,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
     /**
      * Tests whether services of child containers can be correctly retrieved from parent.
      * No relationships between services.
+     *
+     * @since [*next-version*]
      */
     public function testOneLevelRetrieval()
     {
@@ -97,6 +136,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
     /**
      * Tests whether services of child containers can be correctly retrieved from parent.
      * Some services have at most one relationship with a service in another container.
+     *
+     * @since [*next-version*]
      */
     public function testTwoLevelRetrieval()
     {
@@ -148,6 +189,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
      * Some services have relationships with with other services, in different containers.
      * Some of the services are composite containers, which have their own services.
      * Those services have services from other containers referencing them.
+     *
+     * @since [*next-version*]
      */
     public function testThreeLevelComplexRetrieval()
     {
@@ -233,7 +276,6 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $actual[$_key] = $rootContainer->get($_key);
         }
 
-//        var_dump($actual);
         $this->assertEquals($expected, $actual, 'The container structure did not resolve services correctly');
     }
 }
