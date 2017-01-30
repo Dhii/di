@@ -31,10 +31,10 @@ class ContainerTest extends TestCase
      *
      * @return Container
      */
-    public function createInstance(ServiceProviderInterface $provider = null, ContainerInterface $parent = null)
+    public function createInstance(ServiceProviderInterface $provider = null)
     {
         $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME)
-            ->new($provider, $parent);
+            ->new($provider);
 
         return $mock;
     }
