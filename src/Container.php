@@ -30,7 +30,7 @@ class Container extends AbstractContainerBase implements ContainerInterface, Wri
      *
      * @since [*next-version*]
      */
-    public function set($id, $definition)
+    public function set($id, $definition = null)
     {
         $this->_set($id, $definition);
 
