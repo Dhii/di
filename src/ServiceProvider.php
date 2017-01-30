@@ -21,11 +21,7 @@ class ServiceProvider extends AbstractServiceProvider implements ServiceProvider
      */
     public function __construct($definitions = array())
     {
-        if (is_array($definitions)) {
-            foreach ($definitions as $_id => $_definition) {
-                $this->_add($_id, $_definition);
-            }
-        }
+        $this->_addMany($definitions);
     }
 
     /**
