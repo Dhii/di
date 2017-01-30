@@ -9,7 +9,7 @@ use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
  *
  * @since [*next-version*]
  */
-class Container extends AbstractContainerBase implements ContainerInterface
+class Container extends AbstractContainerBase implements ContainerInterface, WritableContainerInterface
 {
     /**
      * Constructor.
@@ -26,18 +26,25 @@ class Container extends AbstractContainerBase implements ContainerInterface
     }
 
     /**
-     * Registers a service or multiple services to this container.
+     * {@inheritdoc}
      *
      * @since [*next-version*]
-     *
-     * @param string|ServiceProviderInterface $id         The service ID, or a service provider
-     * @param callable                        $definition The service definition.
-     *
-     * @return $this This instance.
      */
     public function set($id, $definition)
     {
         $this->_set($id, $definition);
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function register(BaseServiceProviderInterface $serviceProvider)
+    {
+        $this->_register($serviceProvider);
 
         return $this;
     }
