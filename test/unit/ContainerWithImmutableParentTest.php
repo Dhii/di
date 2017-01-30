@@ -10,7 +10,7 @@ use Interop\Container\ServiceProvider as ServiceProviderInterface;
 use Xpmock\TestCase;
 
 /**
- * Description of ContainerWithImmutableParentTest
+ * Tests {@see ContainerWithImmutableParent}.
  *
  * @since [*next-version*]
  */
