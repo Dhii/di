@@ -2,6 +2,7 @@
 
 namespace Dhii\Di;
 
+use Exception;
 use Dhii\Di\Exception\NotFoundException;
 use Dhii\Di\Exception\ContainerException;
 use Interop\Container\ContainerInterface as BaseContainerInterface;
