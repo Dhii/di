@@ -9,7 +9,8 @@ use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
  *
  * @since [*next-version*]
  */
-class Container extends AbstractContainerBase implements ContainerInterface, WritableContainerInterface
+class Container extends AbstractContainerBase
+    implements ContainerInterface, WritableContainerInterface, FactoryInterface
 {
     /**
      * Constructor.
