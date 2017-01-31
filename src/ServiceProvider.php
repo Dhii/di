@@ -2,6 +2,7 @@
 
 namespace Dhii\Di;
 
+use Exception;
 use Dhii\Di\Exception\ContainerException;
 use Traversable;
 
