@@ -49,6 +49,16 @@ abstract class AbstractContainerBase extends AbstractContainer
      * {@inheritdoc}
      *
      * @since [*next-version*]
+     */
+    public function make($id, array $config = array())
+    {
+        return $this->_make($id, $config);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
      *
      * @return NotFoundException The new exception instance.
      */
