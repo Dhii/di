@@ -81,12 +81,14 @@ class AbstractContainerBaseTest extends TestCase
     {
         $definitions = array(
             'test'   => $this->createDefinition('test value'),
-            'random' => $this->createDefinition(123.456),
+            'exception'   => function() {
+                return new \Exception('');
+            }
         );
         $subject = $this->createInstance($definitions);
 
         $this->assertEquals($definitions['test'](), $subject->get('test'));
-        $this->assertTrue($subject->get('random') === $subject->get('random'));
+        $this->assertTrue($subject->get('exception') === $subject->get('exception'));
     }
 
     /**
