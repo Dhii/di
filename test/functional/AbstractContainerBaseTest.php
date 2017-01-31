@@ -92,6 +92,23 @@ class AbstractContainerBaseTest extends TestCase
     }
 
     /**
+     * Tests the factory method to ensure that a new instance is returned with each call.
+     *
+     * @since [*next-version*]
+     */
+    public function testMake()
+    {
+        $definitions = array(
+            'exception'   => function() {
+                return new \Exception('');
+            }
+        );
+        $subject = $this->createInstance($definitions);
+
+        $this->assertFalse($subject->make('exception') === $subject->make('exception'));
+    }
+
+    /**
      * Tests the creation of a NotFoundException to ensure that the correct type is instantiated.
      *
      * @since [*next-version*]
