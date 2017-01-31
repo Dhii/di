@@ -71,12 +71,56 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/di-abstract.git",
-                "reference": "20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec"
+                "reference": "330be5e59ce0cfc2652d543f8682dd3b9682ed52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/di-abstract/zipball/20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec",
-                "reference": "20f6fbee072c36b43d4d06c28c8a89bf61f0e0ec",
+                "url": "https://api.github.com/repos/Dhii/di-abstract/zipball/330be5e59ce0cfc2652d543f8682dd3b9682ed52",
+                "reference": "330be5e59ce0cfc2652d543f8682dd3b9682ed52",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "^1.1",
+                "container-interop/service-provider": "^0.3",
+                "dhii/di-interface": "dev-master",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Di\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Base abstract classes for DI container implementations",
+            "time": "2017-01-30 19:40:09"
+        },
+        {
+            "name": "dhii/di-interface",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/di-interface.git",
+                "reference": "09a6c6a6e7041ee3dd9ab45332d449d18a057514"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/di-interface/zipball/09a6c6a6e7041ee3dd9ab45332d449d18a057514",
+                "reference": "09a6c6a6e7041ee3dd9ab45332d449d18a057514",
                 "shasum": ""
             },
             "require": {
@@ -105,54 +149,8 @@
                     "email": "development@dhii.co"
                 }
             ],
-            "description": "Base abstract classes for DI container implementations",
-            "time": "2017-01-27 15:35:43"
-        },
-        {
-            "name": "dhii/di-interface",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Dhii/di-interface.git",
-                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/di-interface/zipball/27bdb067239dff68b51aabdfdbe66f4dbf387e61",
-                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61",
-                "shasum": ""
-            },
-            "require": {
-                "container-interop/container-interop": "^1.1",
-                "container-interop/service-provider": "^0.3",
-                "php": "^5.3 | ^7.0"
-            },
-            "require-dev": {
-                "dhii/php-cs-fixer-config": "dev-php-5.3",
-                "phpunit/phpunit": "^4.8",
-                "ptrofimov/xpmock": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Dhii\\Di\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dhii Team",
-                    "email": "development@dhii.co"
-                }
-            ],
             "description": "Interfaces for DI container implementations",
-            "support": {
-                "source": "https://github.com/Dhii/di-interface/tree/master",
-                "issues": "https://github.com/Dhii/di-interface/issues"
-            },
-            "time": "2017-01-27 13:11:39"
+            "time": "2017-01-31 13:13:49"
         }
     ],
     "packages-dev": [
@@ -877,12 +875,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "2f09d5a251c4a92d1a80518c2166b5d0d742bc63"
+                "reference": "7c391956f8086a22a257cb26461544e4fc8e02e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2f09d5a251c4a92d1a80518c2166b5d0d742bc63",
-                "reference": "2f09d5a251c4a92d1a80518c2166b5d0d742bc63",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/7c391956f8086a22a257cb26461544e4fc8e02e0",
+                "reference": "7c391956f8086a22a257cb26461544e4fc8e02e0",
                 "shasum": ""
             },
             "require": {
@@ -933,7 +931,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2016-12-10 08:07:52"
+            "time": "2017-01-29 09:51:01"
         },
         {
             "name": "sebastian/diff",
@@ -1310,12 +1308,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "b58c5193eb47dc960961574970d53df13d1afcb8"
+                "reference": "4a99c3a6cabfa0c297fc3531e61483d276133110"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/b58c5193eb47dc960961574970d53df13d1afcb8",
-                "reference": "b58c5193eb47dc960961574970d53df13d1afcb8",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/4a99c3a6cabfa0c297fc3531e61483d276133110",
+                "reference": "4a99c3a6cabfa0c297fc3531e61483d276133110",
                 "shasum": ""
             },
             "require": {
@@ -1359,7 +1357,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21 16:40:50"
+            "time": "2017-01-27 23:54:58"
         },
         {
             "name": "symfony/event-dispatcher",
