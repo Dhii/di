@@ -27,5 +27,8 @@
         "psr-4": {
             "Dhii\\Di\\": "src/"
         }
+    },
+    "provide": {
+        "container-interop/container-interop-implementation": "^1.0"
     }
 }
