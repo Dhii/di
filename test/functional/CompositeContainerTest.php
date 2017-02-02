@@ -61,7 +61,7 @@ class CompositeContainerTest extends TestCase
      *
      * @param ServiceProvider $definitions The service provider.
      * @param ContainerInterface $parent The container instance which is the be the parent container.
-     * @param bool isMutable If true, the container will have its parent container be mutable; immutable if false.
+     * @param bool $isMutable If true, the container will have its parent container be mutable; immutable if false.
      *
      * @return ParentAwareContainerInterface
      */
