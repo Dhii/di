@@ -11,14 +11,14 @@ use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
 /**
  * This container accepts a parent instance, which cannot be changed from external objects.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class ContainerWithImmutableParent extends AbstractParentAwareContainer implements ParentAwareContainerInterface
 {
     /**
      * Constructor.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseServiceProviderInterface $definitions Service definitions to add to this container.
      * @param BaseContainerInterface       $parent      The container, which is to become this container's parent.
@@ -35,7 +35,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function getParentContainer()
     {
@@ -45,7 +45,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function get($id)
     {
@@ -55,7 +55,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function has($id)
     {
@@ -65,7 +65,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return NotFoundException The new exception instance.
      */
@@ -77,7 +77,7 @@ class ContainerWithImmutableParent extends AbstractParentAwareContainer implemen
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return ContainerException The new exception instance.
      */

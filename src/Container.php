@@ -7,7 +7,7 @@ use Interop\Container\ServiceProvider as BaseServiceProviderInterface;
 /**
  * A simple, parent-agnostic container implementation.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class Container extends AbstractContainerBase implements
     ContainerInterface,
@@ -17,7 +17,7 @@ class Container extends AbstractContainerBase implements
     /**
      * Constructor.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseServiceProviderInterface $definitions Service definitions to add to this container.
      */
@@ -31,7 +31,7 @@ class Container extends AbstractContainerBase implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function set($id, $definition = null)
     {
@@ -43,7 +43,7 @@ class Container extends AbstractContainerBase implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function register(BaseServiceProviderInterface $serviceProvider)
     {

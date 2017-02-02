@@ -7,7 +7,7 @@ use Exception;
 /**
  * Concrete implementation of a container that can have child containers.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class CompositeContainer extends AbstractCompositeContainer implements
     ParentAwareContainerInterface,
@@ -16,7 +16,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * Constructor.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ContainerInterface $parent The parent container of this instance.
      */
@@ -28,7 +28,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function get($id)
     {
@@ -38,7 +38,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function has($id)
     {
@@ -48,7 +48,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function getParentContainer()
     {
@@ -58,7 +58,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function getContainers()
     {
@@ -68,7 +68,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * Adds a child container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ContainerInterface $container The container to add.
      *
@@ -84,7 +84,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return NotFoundException The new exception instance.
      */
@@ -96,7 +96,7 @@ class CompositeContainer extends AbstractCompositeContainer implements
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return ContainerException The new exception instance.
      */
