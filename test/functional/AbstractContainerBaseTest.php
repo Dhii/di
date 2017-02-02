@@ -75,7 +75,7 @@ class AbstractContainerBaseTest extends TestCase
      * This test also verifies whether the same instance of a service is returned by multiple
      * calls with the same service ID.
      *
-     * @see [*next-version*]
+     * @since [*next-version*]
      */
     public function testGet()
     {
