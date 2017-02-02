@@ -17,8 +17,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^5.3 | ^7.0",
-        "dhii/di-interface": "dev-master",
-        "dhii/di-abstract": "dev-master",
+        "dhii/di-interface": "^0.1",
+        "dhii/di-abstract": "^0.1",
         "container-interop/container-interop": "^1.1",
         "container-interop/service-provider": "^0.3"
     },
