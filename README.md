@@ -1,5 +1,5 @@
 ## XedinUnknown - DI ##
-[![Build Status](https://travis-ci.org/XedinUnknown/di.svg?branch=master)](https://travis-ci.org/XedinUnknown/di)
+[![Build Status](https://travis-ci.org/Dhii/di.svg?branch=master)](https://travis-ci.org/Dhii/di)
 
 A demonstration of how it could be possible to formalize the [delegate lookup](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup.md) feature
 via a PHP interface, and at the same time not enforce a setter onto the implementation.
