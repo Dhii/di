@@ -1,41 +1,75 @@
 <?php
 
-namespace XedinUnknown\Di\FuncTest;
+namespace Dhii\Di\FuncTest;
 
-use XedinUnknown\Di;
+use Dhii\Di\CompositeContainer;
+use Dhii\Di\ParentAwareContainerInterface;
+use Dhii\Di\ServiceProvider as ServiceProvider2;
 use Interop\Container\ContainerInterface;
 use Interop\Container\ServiceProvider;
+use Xpmock\TestCase;
 
 /**
- * Tests {@see \XedinUnknown\Di\CompositeContainer} and related classes.
+ * Tests {@see \Dhii\Di\CompositeContainer} and related classes.
+ *
+ * @since [*next-version*]
  */
-class CompositeContainerTest extends \Xpmock\TestCase
+class CompositeContainerTest extends TestCase
 {
     /**
+     * The class name of the test subject.
+     *
+     * @since [*next-version*]
+     */
+    const TEST_SUBJECT_CLASSNAME = 'Dhii\\Di\\CompositeContainer';
+
+    /**
+     * Creates a new instance of the test subject.
+     *
+     * @since [*next-version*]
+     *
      * @param ContainerInterface $parent The container, which is to become this container's parent.
-     * @return Di\CompositeContainer
+     *
+     * @return CompositeContainer
      */
     public function createInstance(ContainerInterface $parent = null)
     {
-        $mock = $this->mock('XedinUnknown\\Di\\CompositeContainer')
+        $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME)
                 ->new($parent);
 
         return $mock;
     }
 
+    /**
+     * Creates a new service provider instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param array $definitions An array of service definitions.
+     *
+     * @return ServiceProvider2
+     */
     public function createServiceProvider($definitions)
     {
-        return new Di\ServiceProvider($definitions);
+        return new ServiceProvider2($definitions);
     }
 
     /**
-     * @return Di\ParentAwareContainerInterface
+     * Creates a new container instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param ServiceProvider $definitions The service provider.
+     * @param ContainerInterface $parent The container instance which is the be the parent container.
+     * @param bool isMutable If true, the container will have its parent container be mutable; immutable if false.
+     *
+     * @return ParentAwareContainerInterface
      */
     public function createContainer(ServiceProvider $definitions, ContainerInterface $parent = null, $isMutable = true)
     {
         $className = $isMutable
-                ? 'XedinUnknown\\Di\\ContainerWithMutableParent'
-                : 'XedinUnknown\\Di\\ContainerWithImmutableParent';
+                ? 'Dhii\\Di\\ContainerWithMutableParent'
+                : 'Dhii\\Di\\ContainerWithImmutableParent';
         $mock = $this->mock($className)
                 ->new($definitions, $parent);
 
@@ -45,7 +79,10 @@ class CompositeContainerTest extends \Xpmock\TestCase
     /**
      * Create a service definition that returns a simple value.
      *
+     * @since [*next-version*]
+     *
      * @param mixed $value The value that the service definition will return.
+     *
      * @return callable A service definition that will return the given value.
      */
     public function createDefinition($value)
@@ -57,7 +94,9 @@ class CompositeContainerTest extends \Xpmock\TestCase
 
     /**
      * Tests whether services of child containers can be correctly retrieved from parent.
-     * No relationshipts between services.
+     * No relationships between services.
+     *
+     * @since [*next-version*]
      */
     public function testOneLevelRetrieval()
     {
@@ -97,6 +136,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
     /**
      * Tests whether services of child containers can be correctly retrieved from parent.
      * Some services have at most one relationship with a service in another container.
+     *
+     * @since [*next-version*]
      */
     public function testTwoLevelRetrieval()
     {
@@ -106,7 +147,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer1 = $this->createContainer(
             $this->createServiceProvider(array(
                 'service1'          => function (ContainerInterface $container) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $container, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $container, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-1', $container->get('service3')));
                 },
                 'service2'          => $this->createDefinition('service-2'),
@@ -148,6 +189,8 @@ class CompositeContainerTest extends \Xpmock\TestCase
      * Some services have relationships with with other services, in different containers.
      * Some of the services are composite containers, which have their own services.
      * Those services have services from other containers referencing them.
+     *
+     * @since [*next-version*]
      */
     public function testThreeLevelComplexRetrieval()
     {
@@ -157,11 +200,11 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $this->createServiceProvider(array(
                 'service1'          => $this->createDefinition('service-1'),
                 'service2'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-2', $c->get('service3')));
                 },
                 'service7'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-7', $c->get('service4')));
                 }
             )), // Servide definitions
@@ -174,7 +217,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $this->createServiceProvider(array(
                 'service3'          => $this->createDefinition('service-3'),
                 'service4'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-4', $c->get('service5')));
                 }
             )), // Servide definitions
@@ -188,7 +231,7 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer3->add($this->createContainer(
             $this->createServiceProvider(array(
                 'service5'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-5', $c->get('service8')));
                 },
                 'service6'          => $this->createDefinition('service-6')
@@ -199,11 +242,11 @@ class CompositeContainerTest extends \Xpmock\TestCase
         $childContainer3->add($this->createContainer(
             $this->createServiceProvider(array(
                 'service8'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-8', $c->get('service1')));
                 },
                 'service9'          => function (ContainerInterface $c) use ($me) {
-                    $me->assertInstanceOf('XedinUnknown\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
+                    $me->assertInstanceOf('Dhii\Di\CompositeContainerInterface', $c, 'Container must be composite in order to retrieve definition from another container');
                     return implode('->', array('service-9', $c->get('service6')));
                 }
             )),
@@ -233,7 +276,6 @@ class CompositeContainerTest extends \Xpmock\TestCase
             $actual[$_key] = $rootContainer->get($_key);
         }
 
-//        var_dump($actual);
         $this->assertEquals($expected, $actual, 'The container structure did not resolve services correctly');
     }
 }
