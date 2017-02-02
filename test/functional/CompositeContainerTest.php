@@ -12,21 +12,21 @@ use Xpmock\TestCase;
 /**
  * Tests {@see \Dhii\Di\CompositeContainer} and related classes.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class CompositeContainerTest extends TestCase
 {
     /**
      * The class name of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     const TEST_SUBJECT_CLASSNAME = 'Dhii\\Di\\CompositeContainer';
 
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ContainerInterface $parent The container, which is to become this container's parent.
      *
@@ -43,7 +43,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Creates a new service provider instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param array $definitions An array of service definitions.
      *
@@ -57,11 +57,11 @@ class CompositeContainerTest extends TestCase
     /**
      * Creates a new container instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ServiceProvider $definitions The service provider.
      * @param ContainerInterface $parent The container instance which is the be the parent container.
-     * @param bool isMutable If true, the container will have its parent container be mutable; immutable if false.
+     * @param bool $isMutable If true, the container will have its parent container be mutable; immutable if false.
      *
      * @return ParentAwareContainerInterface
      */
@@ -79,7 +79,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Create a service definition that returns a simple value.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param mixed $value The value that the service definition will return.
      *
@@ -96,7 +96,7 @@ class CompositeContainerTest extends TestCase
      * Tests whether services of child containers can be correctly retrieved from parent.
      * No relationships between services.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testOneLevelRetrieval()
     {
@@ -137,7 +137,7 @@ class CompositeContainerTest extends TestCase
      * Tests whether services of child containers can be correctly retrieved from parent.
      * Some services have at most one relationship with a service in another container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testTwoLevelRetrieval()
     {
@@ -190,7 +190,7 @@ class CompositeContainerTest extends TestCase
      * Some of the services are composite containers, which have their own services.
      * Those services have services from other containers referencing them.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testThreeLevelComplexRetrieval()
     {

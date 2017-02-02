@@ -8,7 +8,7 @@ use Dhii\Di\ExceptionInterface as DiExceptionInterface;
 /**
  * An exception that is thrown when a service definition is not found by a DI container.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class NotFoundException extends \Exception implements
     DiExceptionInterface,

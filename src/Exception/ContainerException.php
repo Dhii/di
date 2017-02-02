@@ -8,7 +8,7 @@ use Dhii\Di\ExceptionInterface as DiExceptionInterface;
 /**
  * An exception related to DI containers.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class ContainerException extends \Exception implements
     DiExceptionInterface,

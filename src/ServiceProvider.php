@@ -9,14 +9,14 @@ use Traversable;
 /**
  * Generic standards-compliant immutable DI service provider.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class ServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
 {
     /**
      * Constructor.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param callable[]|Traversable $definitions A list of definitions for this provider.
      */
@@ -28,7 +28,7 @@ class ServiceProvider extends AbstractServiceProvider implements ServiceProvider
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function getServices()
     {
@@ -38,7 +38,7 @@ class ServiceProvider extends AbstractServiceProvider implements ServiceProvider
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return ContainerException The new exception instance.
      */

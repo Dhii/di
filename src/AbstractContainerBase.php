@@ -10,14 +10,14 @@ use Interop\Container\ContainerInterface as BaseContainerInterface;
 /**
  * Common public functionality.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractContainerBase extends AbstractContainer
 {
     /**
      * Checks if a service exists with a specific ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see BaseContainerInterface::has()
      *
      * @param string $id The ID of the service to check for.
@@ -32,7 +32,7 @@ abstract class AbstractContainerBase extends AbstractContainer
     /**
      * Retrieves the service with a specific ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see BaseContainerInterface::get()
      *
      * @param string $id The ID of the service to retrieve.
@@ -49,7 +49,7 @@ abstract class AbstractContainerBase extends AbstractContainer
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function make($id, array $config = array())
     {
@@ -59,7 +59,7 @@ abstract class AbstractContainerBase extends AbstractContainer
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return NotFoundException The new exception instance.
      */
@@ -71,7 +71,7 @@ abstract class AbstractContainerBase extends AbstractContainer
     /**
      * {@inheritdoc}
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return ContainerException The new exception instance.
      */
