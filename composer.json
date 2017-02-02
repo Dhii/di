@@ -3,6 +3,11 @@
     "description": "A DI container implementation",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "container",
+        "di",
+        "dependency injection"
+    ],
     "authors": [
         {
             "name": "Dhii Team",
