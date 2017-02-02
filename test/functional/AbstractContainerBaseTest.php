@@ -8,21 +8,21 @@ use \Xpmock\TestCase;
 /**
  * Tests {@see Dhii\Di\AbstractContainerBase}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class AbstractContainerBaseTest extends TestCase
 {
     /**
      * The class name of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     const TEST_SUBJECT_CLASSNAME = 'Dhii\\Di\\AbstractContainerBase';
 
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return AbstractContainerBase
      */
@@ -53,7 +53,7 @@ class AbstractContainerBaseTest extends TestCase
      * Tests the service definition checker method to ensure that it correctly determines if a
      * service ID exists in the container or not.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHas()
     {
@@ -75,7 +75,7 @@ class AbstractContainerBaseTest extends TestCase
      * This test also verifies whether the same instance of a service is returned by multiple
      * calls with the same service ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGet()
     {
@@ -94,7 +94,7 @@ class AbstractContainerBaseTest extends TestCase
     /**
      * Tests the factory method to ensure that a new instance is returned with each call.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testMake()
     {
@@ -111,7 +111,7 @@ class AbstractContainerBaseTest extends TestCase
     /**
      * Tests the creation of a NotFoundException to ensure that the correct type is instantiated.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCreateNotFoundException()
     {
@@ -125,7 +125,7 @@ class AbstractContainerBaseTest extends TestCase
     /**
      * Tests the creation of a ContainerException to ensure that the correct type is instantiated.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCreateContainerException()
     {
