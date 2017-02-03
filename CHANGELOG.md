@@ -18,3 +18,4 @@ Reduced size of dist archive.
 ### Fixed
 - `CompositeContainer#__construct()` not accepting interop containers.
 - `CompositeContainer#add()` not implementing interface method.
+- `CompositeContainer` not throwing exceptions correctly.
