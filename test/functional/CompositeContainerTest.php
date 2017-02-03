@@ -79,7 +79,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Creates an instance of the most basic interop container.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      *
      * @return ContainerInterface The new instance.
      */
@@ -112,7 +112,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Tests whether a valid instance of the test subject can be created.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      */
     public function testCanBeCreated()
     {
@@ -126,7 +126,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Tests whether an interop container can get added to the composite container.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      */
     public function testAdd()
     {
@@ -140,7 +140,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Tests that the constructor accepts correct args.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      */
     public function testConstructor()
     {
