@@ -1,4 +1,6 @@
 ## Dhii - DI ##
+
+[![Join the chat at https://gitter.im/Dhii/di](https://badges.gitter.im/Dhii/di.svg)](https://gitter.im/Dhii/di?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/Dhii/di.svg?branch=master)](https://travis-ci.org/Dhii/di)
 [![Code Climate](https://codeclimate.com/github/Dhii/di/badges/gpa.svg)](https://codeclimate.com/github/Dhii/di)
 [![Test Coverage](https://codeclimate.com/github/Dhii/di/badges/coverage.svg)](https://codeclimate.com/github/Dhii/di/coverage)
