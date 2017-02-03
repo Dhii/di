@@ -3,6 +3,9 @@
 namespace Dhii\Di;
 
 use Exception;
+use Dhii\Di\Exception\ContainerException;
+use Dhii\Di\Exception\NotFoundException;
+use Interop\Container\ContainerInterface as BaseContainerInterface;
 
 /**
  * Concrete implementation of a container that can have child containers.
@@ -11,16 +14,16 @@ use Exception;
  */
 class CompositeContainer extends AbstractCompositeContainer implements
     ParentAwareContainerInterface,
-    CompositeContainerInterface
+    WritableCompositeContainerInterface
 {
     /**
      * Constructor.
      *
      * @since 0.1
      *
-     * @param ContainerInterface $parent The parent container of this instance.
+     * @param BaseContainerInterface $parent The parent container of this instance.
      */
-    public function __construct(ContainerInterface $parent = null)
+    public function __construct(BaseContainerInterface $parent = null)
     {
         $this->_setParentContainer($parent);
     }
@@ -70,11 +73,11 @@ class CompositeContainer extends AbstractCompositeContainer implements
      *
      * @since 0.1
      *
-     * @param ContainerInterface $container The container to add.
+     * @param BaseContainerInterface $container The container to add.
      *
      * @return $this This instance.
      */
-    public function add(ContainerInterface $container)
+    public function add(BaseContainerInterface $container)
     {
         $this->_add($container);
 
