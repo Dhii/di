@@ -138,6 +138,20 @@ class CompositeContainerTest extends TestCase
     }
 
     /**
+     * Tests that the constructor accepts correct args.
+     *
+     * @since [*next-version*]
+     */
+    public function testConstructor()
+    {
+        $class = static::TEST_SUBJECT_CLASSNAME;
+        $parent = $this->createBaseContainer();
+        $subject = $this->createInstance($parent);
+
+        $this->assertSame($parent, $subject->getParentContainer(), 'Parent set in constructor could not be retrieved');
+    }
+
+    /**
      * Tests whether services of child containers can be correctly retrieved from parent.
      * No relationships between services.
      *
