@@ -355,10 +355,16 @@ class CompositeContainerTest extends TestCase
     {
         $subject = $this->createInstance();
 
-        $expected = new NotFoundException('test message', 3, null);
-        $exception = $subject->this()->_createNotFoundException('test message', 3, null);
+        $previous = new \Exception('test message', 3, null);
+        $exception = $subject->this()->_createNotFoundException('test message', 3, $previous);
 
-        $this->assertEquals($expected, $exception);
+        $this->assertInstanceOf('Dhii\\Di\\Exception\\NotFoundException', $exception);
+        $this->assertInstanceOf('Dhii\\Di\\ExceptionInterface', $exception);
+        $this->assertInstanceOf('Interop\\Container\\Exception\\NotFoundException', $exception);
+
+        $this->assertEquals('test message', $exception->getMessage());
+        $this->assertEquals(3, $exception->getCode());
+        $this->assertEquals($previous, $exception->getPrevious());
     }
 
     /**
@@ -370,9 +376,15 @@ class CompositeContainerTest extends TestCase
     {
         $subject = $this->createInstance();
 
-        $expected = new ContainerException('test message', 3, null);
-        $exception = $subject->this()->_createContainerException('test message', 3, null);
+        $previous = new \Exception('test message', 3, null);
+        $exception = $subject->this()->_createContainerException('test message', 3, $previous);
 
-        $this->assertEquals($expected, $exception);
+        $this->assertInstanceOf('Dhii\\Di\\Exception\\ContainerException', $exception);
+        $this->assertInstanceOf('Dhii\\Di\\ExceptionInterface', $exception);
+        $this->assertInstanceOf('Interop\\Container\\Exception\\ContainerException', $exception);
+
+        $this->assertEquals('test message', $exception->getMessage());
+        $this->assertEquals(3, $exception->getCode());
+        $this->assertEquals($previous, $exception->getPrevious());
     }
 }
