@@ -77,6 +77,23 @@ class CompositeContainerTest extends TestCase
     }
 
     /**
+     * Creates an instance of the most basic interop container.
+     *
+     * @since [*next-version*]
+     *
+     * @return ContainerInterface The new instance.
+     */
+    public function createBaseContainer()
+    {
+        $instance = $this->mock('Interop\\Container\\ContainerInterface')
+                ->get()
+                ->has()
+                ->new();
+
+        return $instance;
+    }
+
+    /**
      * Create a service definition that returns a simple value.
      *
      * @since 0.1
@@ -90,6 +107,34 @@ class CompositeContainerTest extends TestCase
         return function(ContainerInterface $container, $previous = null) use ($value) {
             return $value;
         };
+    }
+
+    /**
+     * Tests whether a valid instance of the test subject can be created.
+     *
+     * @since [*next-version*]
+     */
+    public function testCanBeCreated()
+    {
+        $subject = $this->createInstance();
+        $this->assertInstanceOf('Dhii\\Di\\CompositeContainerInterface', $subject, 'A valid instance of the test subject could not be created');
+        $this->assertInstanceOf('Dhii\\Di\\WritableCompositeContainerInterface', $subject, 'Test subject does not implement required interface');
+        $this->assertInstanceOf('Dhii\\Di\\ParentAwareContainerInterface', $subject, 'Test subject does not implement required interface');
+        $this->assertInstanceOf('Interop\\Container\\ContainerInterface', $subject, 'Test subject does not implement required interface');
+    }
+
+    /**
+     * Tests whether an interop container can get added to the composite container.
+     *
+     * @since [*next-version*]
+     */
+    public function testAdd()
+    {
+        $subject = $this->createInstance();
+        $child = $this->createBaseContainer();
+
+        $subject->add($child);
+        $this->assertContains($child, $subject->getContainers(), 'Added container is not in the resulting container set');
     }
 
     /**
