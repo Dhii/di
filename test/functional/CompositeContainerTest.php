@@ -349,7 +349,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Tests the method that creates a {@see NotFoundException}.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      */
     public function testCreateNotFoundException()
     {
@@ -370,7 +370,7 @@ class CompositeContainerTest extends TestCase
     /**
      * Tests the method that creates a {@see ContainerException}.
      *
-     * @since [*next-version*]
+     * @since 0.1.1
      */
     public function testContainerException()
     {
