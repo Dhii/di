@@ -10,3 +10,10 @@ Initial release, containing concrete implementations.
 ### Added
 - Implementations of regular and compound containers, with service provider support.
 - Tests.
+
+## [0.1.1] - 2017-02-03
+Non-BC-breaking bugfixes.
+
+### Fixed
+- `CompositeContainer#__construct()` not accepting interop containers.
+- `CompositeContainer#add()` not implementing interface method.
