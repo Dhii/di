@@ -14,6 +14,7 @@ Initial release, containing concrete implementations.
 ## [0.1.1] - 2017-02-03
 Non-BC-breaking bugfixes.
 Reduced size of dist archive.
+Added Gitter notifications of Travis events, and Gitter badge.
 
 ### Fixed
 - `CompositeContainer#__construct()` not accepting interop containers.
