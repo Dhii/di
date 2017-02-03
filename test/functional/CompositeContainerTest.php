@@ -3,6 +3,8 @@
 namespace Dhii\Di\FuncTest;
 
 use Dhii\Di\CompositeContainer;
+use Dhii\Di\Exception\NotFoundException;
+use Dhii\Di\Exception\ContainerException;
 use Dhii\Di\ParentAwareContainerInterface;
 use Dhii\Di\ServiceProvider as ServiceProvider2;
 use Interop\Container\ContainerInterface;
@@ -336,5 +338,35 @@ class CompositeContainerTest extends TestCase
         }
 
         $this->assertEquals($expected, $actual, 'The container structure did not resolve services correctly');
+    }
+
+    /**
+     * Tests the method that creates a {@see NotFoundException}.
+     *
+     * @since [*next-version*]
+     */
+    public function testCreateNotFoundException()
+    {
+        $subject = $this->createInstance();
+
+        $expected = new NotFoundException('test message', 3, null);
+        $exception = $subject->this()->_createNotFoundException('test message', 3, null);
+
+        $this->assertEquals($expected, $exception);
+    }
+
+    /**
+     * Tests the method that creates a {@see ContainerException}.
+     *
+     * @since [*next-version*]
+     */
+    public function testContainerException()
+    {
+        $subject = $this->createInstance();
+
+        $expected = new ContainerException('test message', 3, null);
+        $exception = $subject->this()->_createContainerException('test message', 3, null);
+
+        $this->assertEquals($expected, $exception);
     }
 }
