@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/Dhii/di/badges/gpa.svg)](https://codeclimate.com/github/Dhii/di)
 [![Test Coverage](https://codeclimate.com/github/Dhii/di/badges/coverage.svg)](https://codeclimate.com/github/Dhii/di/coverage)
 [![Join the chat at https://gitter.im/Dhii/di](https://badges.gitter.im/Dhii/di.svg)](https://gitter.im/Dhii/di?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![This package complies with Dhii standards](https://img.shields.io/badge/Dhii-Compliant-green.svg?style=flat-square)][Dhii]
 
 A simple, granular, standards-compliant dependency injection container and factory implementation.
 
@@ -19,3 +20,5 @@ A simple, granular, standards-compliant dependency injection container and facto
 ### Disadvantages
 - Does not support the factories' 2nd parameter, i.e. [`$getPrevious`](https://github.com/container-interop/service-provider/blob/v0.3.0/src/ServiceProvider.php#L22).
 - Container and factory unified into one class (to be separated soon).
+
+[Dhii]: https://github.com/Dhii/dhii

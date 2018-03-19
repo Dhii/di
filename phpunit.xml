@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    colors="true"
-    bootstrap="test/bootstrap.php"
+        colors="true"
+        bootstrap="test/bootstrap.php"
 >
     <php>
         <ini name="display_errors" value="1" />
         <ini name="display_startup_errors" value="1" />
     </php>
     <testsuites>
-        <testsuite name="Unit Tests">
+        <testsuite name="unit">
             <directory>./test/unit/</directory>
         </testsuite>
-        <testsuite name="Functional Tests">
+        <testsuite name="functional">
             <directory>./test/functional/</directory>
         </testsuite>
     </testsuites>

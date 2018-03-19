@@ -15,6 +15,7 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^5.3 | ^7.0",
         "dhii/di-interface": "^0.1",
@@ -33,7 +34,18 @@
             "Dhii\\Di\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Dhii\\Di\\UnitTest\\": "test/unit",
+            "Dhii\\Di\\FuncTest\\": "test/functional"
+        }
+    },
     "provide": {
         "container-interop/container-interop-implementation": "^1.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
     }
 }
