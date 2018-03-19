@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9deacea49e1ebc4ce0420e1dd80b3994",
+    "content-hash": "64d26e9b3a5007983cb75744a9c701ae",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -268,23 +268,24 @@
         },
         {
             "name": "dhii/php-cs-fixer-config",
-            "version": "dev-php-5.3",
+            "version": "v0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/php-cs-fixer-config.git",
-                "reference": "ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca"
+                "reference": "fc2f45d1f822bff7d871ba3c4c9750ad66f5ab0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/php-cs-fixer-config/zipball/ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca",
-                "reference": "ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca",
+                "url": "https://api.github.com/repos/Dhii/php-cs-fixer-config/zipball/fc2f45d1f822bff7d871ba3c4c9750ad66f5ab0c",
+                "reference": "fc2f45d1f822bff7d871ba3c4c9750ad66f5ab0c",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": ">=1.11 <1.12",
-                "php": "^5.3 | ^7.0"
+                "php": "^5.4 | ^7.0"
             },
             "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
                 "phpunit/phpunit": "^4.8"
             },
             "type": "library",
@@ -304,7 +305,7 @@
                 }
             ],
             "description": "A default PHP CS Fixer config implementation",
-            "time": "2016-09-03T14:45:03+00:00"
+            "time": "2017-07-23T12:53:27+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -2056,13 +2057,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "dhii/php-cs-fixer-config": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.3 | ^7.0"
+        "php": "^5.4 | ^7.0"
     },
     "platform-dev": []
 }
