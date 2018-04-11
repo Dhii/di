@@ -3,13 +3,20 @@
 namespace Dhii\Di;
 
 use ArrayAccess;
+use stdClass;
+use Psr\Container\ContainerInterface as BaseContainerInterface;
 use Dhii\Data\Container\ContainerAwareInterface;
 use Dhii\Data\Container\ContainerAwareTrait;
 use Dhii\Data\Container\ResolveContainerCapableTrait;
+use Dhii\Exception\CreateInvalidArgumentExceptionCapableTrait;
+use Dhii\Exception\CreateOutOfRangeExceptionCapableTrait;
+use Dhii\Exception\CreateRuntimeExceptionCapableTrait;
+use Dhii\Exception\CreateInternalExceptionCapableTrait;
+use Dhii\Invocation\CreateInvocationExceptionCapableTrait;
+use Dhii\Validation\CreateValidationFailedExceptionCapableTrait;
 use Dhii\I18n\StringTranslatingTrait;
-use stdClass;
-use Psr\Container\ContainerInterface as BaseContainerInterface;
 use Dhii\Cache\ContainerInterface as CacheContainerInterface;
+use Dhii\Util\Normalization\NormalizeIntCapableTrait;
 
 /**
  * A DI container that is aware of a parent container.
@@ -20,15 +27,8 @@ use Dhii\Cache\ContainerInterface as CacheContainerInterface;
  *
  * @since [*next-version*]
  */
-class ContainerAwareCachingContainer extends AbstractBaseContainer implements ContainerAwareInterface
+class ContainerAwareCachingContainer extends AbstractBaseCachingContainer implements ContainerAwareInterface
 {
-    /*
-     * Basic ability to i18n strings.
-     *
-     * @since [*next-version*]
-     */
-    use StringTranslatingTrait;
-
     /* Awareness of an outer container.
      *
      * @since [*next-version*]
@@ -40,6 +40,55 @@ class ContainerAwareCachingContainer extends AbstractBaseContainer implements Co
      * @since [*next-version*]
      */
     use ResolveContainerCapableTrait;
+
+    /*
+     * Basic ability to i18n strings.
+     *
+     * @since [*next-version*]
+     */
+    use StringTranslatingTrait;
+
+    /* Ability to normalize into an integer.
+     *
+     * @since [*next-version*]
+     */
+    use NormalizeIntCapableTrait;
+
+    /* Factory of Validation Failed exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateValidationFailedExceptionCapableTrait;
+
+    /* Factory of Runtime exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateRuntimeExceptionCapableTrait;
+
+    /* Factory of Invalid Argument exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateInvalidArgumentExceptionCapableTrait;
+
+    /* Factory of Out of Range exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateOutOfRangeExceptionCapableTrait;
+
+    /* Factory of Invocation exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateInvocationExceptionCapableTrait;
+
+    /* Factory of Internal exception.
+     *
+     * @since [*next-version*]
+     */
+    use CreateInternalExceptionCapableTrait;
 
     /**
      * @since [*next-version*]

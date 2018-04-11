@@ -2,7 +2,7 @@
 
 namespace Dhii\Di\FuncTest;
 
-use Dhii\Di\AbstractBaseContainer as TestSubject;
+use Dhii\Di\CachingContainer as TestSubject;
 use Dhii\Cache\ContainerInterface as CacheContainerInterface;
 use Psr\Container\ContainerInterface as BaseContainerInterface;
 use stdClass;
@@ -16,25 +16,26 @@ use PHPUnit_Framework_MockObject_MockBuilder as MockBuilder;
  *
  * @since [*next-version*]
  */
-class AbstractBaseContainerTest extends TestCase
+class CachingContainerTest extends TestCase
 {
     /**
      * The class name of the test subject.
      *
      * @since [*next-version*]
      */
-    const TEST_SUBJECT_CLASSNAME = 'Dhii\Di\AbstractBaseContainer';
+    const TEST_SUBJECT_CLASSNAME = 'Dhii\Di\CachingContainer';
 
     /**
      * Creates a new instance of the test subject.
      *
      * @since [*next-version*]
      *
-     * @param array $methods The methods to mock.
+     * @param array $methods         The methods to mock.
+     * @param array $constructorArgs Arguments for the constructor.
      *
      * @return MockObject|TestSubject The new instance.
      */
-    public function createInstance($methods = [])
+    public function createInstance($methods = [], $constructorArgs = [])
     {
         is_array($methods) && $methods = $this->mergeValues($methods, [
             '__',
@@ -42,10 +43,8 @@ class AbstractBaseContainerTest extends TestCase
 
         $mock = $this->getMockBuilder(static::TEST_SUBJECT_CLASSNAME)
             ->setMethods($methods)
-            ->getMockForAbstractClass();
-
-        $mock->method('__')
-                ->will($this->returnArgument(0));
+            ->setConstructorArgs($constructorArgs)
+            ->getMock();
 
         return $mock;
     }
@@ -197,7 +196,7 @@ class AbstractBaseContainerTest extends TestCase
      */
     public function testCanBeCreated()
     {
-        $subject = $this->createInstance(['_getArgsForDefinition']);
+        $subject = $this->createInstance([], [[], $this->createCacheContainer()]);
 
         $this->assertInstanceOf(
             static::TEST_SUBJECT_CLASSNAME,
@@ -210,9 +209,8 @@ class AbstractBaseContainerTest extends TestCase
      * Tests that `get()` works correctly.
      *
      * It must correctly retrieve the services from definitions, invoking callable definitions only once,
-     * and retrieving simple services as is. Because the container, on which `get()` is called, is container-aware,
-     * the callable definitions must receive the inner-most container. The services must be cached, and subsequent
-     * requests should return the cached versions.
+     * and retrieving simple services as is. The services must be cached, and subsequent requests should return the
+     * cached versions.
      *
      * @since [*next-version*]
      */
@@ -224,25 +222,13 @@ class AbstractBaseContainerTest extends TestCase
         $key2 = uniqid('key');
         $service2 = new stdClass();
         $def2 = $service2;
-        $store = (object) [
+        $services = [
             $key1 => $def1,
             $key2 => $def2,
         ];
-        $container1 = $this->createContainer();
         $cache = $this->createCacheContainer();
-        $subject = $this->createInstance(['_getDataStore', '_getServiceCache', '_getArgsForDefinition']);
+        $subject = $this->createInstance([], [$services, $cache]);
         $_subject = $this->reflect($subject);
-
-        $subject->expects($this->any())
-            ->method('_getDataStore')
-            ->will($this->returnValue($store));
-        $subject->expects($this->exactly(3))
-            ->method('_getServiceCache')
-            ->will($this->returnValue($cache));
-        $subject->expects($this->exactly(1))
-            ->method('_getArgsForDefinition')
-            ->with($def1)
-            ->will($this->returnValue([$subject]));
 
         $def1->expects($this->exactly(1))
             ->method('__invoke')
@@ -256,73 +242,5 @@ class AbstractBaseContainerTest extends TestCase
 
         $result2 = $subject->get($key2);
         $this->assertSame($service2, $result2, 'Wrong simple service returned');
-    }
-
-    /**
-     * Tests that `has()` works correctly.
-     *
-     * If must report `true` if the container has a service definition with the requested key. It must report `false`
-     * for any other key.
-     *
-     * @since [*next-version*]
-     */
-    public function testHas()
-    {
-        $key1 = uniqid('key');
-        $service1 = new stdClass();
-        $def1 = $this->createCallable();
-        $key2 = uniqid('key');
-        $service2 = new stdClass();
-        $def2 = $service2;
-        $key3 = uniqid('key');
-        $container1 = $this->createContainer();
-        $store = (object) [
-            $key1 => $def1,
-            $key2 => $def2,
-        ];
-        $subject = $this->createInstance(['_getDataStore']);
-        $_subject = $this->reflect($subject);
-
-        $subject->expects($this->any())
-            ->method('_getDataStore')
-            ->will($this->returnValue($store));
-
-        $this->assertTrue($subject->has($key1));
-        $this->assertTrue($subject->has($key2));
-        $this->assertFalse($subject->has($key3));
-    }
-
-    /**
-     * Tests that `_createReflectionFunction()` works correctly.
-     *
-     * @since [*next-version*]
-     */
-    public function testCreateReflectionFunction()
-    {
-        $functionName = 'sprintf';
-        $subject = $this->createInstance();
-        $_subject = $this->reflect($subject);
-
-        $result = $_subject->_createReflectionFunction($functionName);
-        $this->assertInstanceOf('ReflectionFunction', $result, 'Reflection has wrong type');
-        $this->assertEquals($functionName, $result->getName(), 'Reflection has wrong function name');
-    }
-
-    /**
-     * Tests that `_createReflectionMethod()` works correctly.
-     *
-     * @since [*next-version*]
-     */
-    public function testCreateReflectionMethod()
-    {
-        $methodName = 'count';
-        $className = 'ArrayObject';
-        $subject = $this->createInstance();
-        $_subject = $this->reflect($subject);
-
-        $result = $_subject->_createReflectionMethod($className, $methodName);
-        $this->assertInstanceOf('ReflectionMethod', $result, 'Reflection has wrong type');
-        $this->assertEquals($result->getDeclaringClass()->getName(), $className, 'Reflection has wrong class name');
-        $this->assertEquals($methodName, $result->getName(), 'Reflection has wrong method name');
     }
 }
