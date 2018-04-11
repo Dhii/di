@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [[*next-version*]] - YYYY-MM-DD
+
+## [0.2-alpha1] - 2018-04-11
 ### Changed
 - Completely re-created the DI implementation, which is now largely based on other common pattern implementations,
 impements newer standards and techniques.
