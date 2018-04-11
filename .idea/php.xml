@@ -9,12 +9,8 @@
       <path value="$PROJECT_DIR$/vendor/codeclimate/php-test-reporter" />
       <path value="$PROJECT_DIR$/vendor/dhii/php-cs-fixer-config" />
       <path value="$PROJECT_DIR$/vendor/ptrofimov/xpmock" />
-      <path value="$PROJECT_DIR$/vendor/dhii/di-interface" />
-      <path value="$PROJECT_DIR$/vendor/dhii/di-abstract" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/container-interop/service-provider" />
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -42,9 +38,42 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/dhii/i18n-helper-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/exception-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/i18n-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-container-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-container-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/normalization-helper-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/stringable-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/invocable-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-container-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/simple-cache-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/callback-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/invocable-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/di-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-object-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/container-helper-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/iterator-helper-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/validation-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/validation-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/factory-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/validation-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/args-list-validation" />
+      <path value="$PROJECT_DIR$/vendor/dhii/exception" />
+      <path value="$PROJECT_DIR$/vendor/dhii/iterator-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-path-aware-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-key-value-aware-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-key-value-aware-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/iterator-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-hierarchy-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/cache-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/collections-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/iterator-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/map" />
+      <path value="$PROJECT_DIR$/vendor/dhii/memoize-memory" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="5.3.0" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="F:/projects/dhii/di/vendor/autoload.php" />
