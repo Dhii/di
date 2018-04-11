@@ -1,4 +1,4 @@
-## Dhii - DI ##
+# Dhii - DI
 
 [![Build Status](https://travis-ci.org/Dhii/di.svg?branch=master)](https://travis-ci.org/Dhii/di)
 [![Code Climate](https://codeclimate.com/github/Dhii/di/badges/gpa.svg)](https://codeclimate.com/github/Dhii/di)
@@ -6,19 +6,35 @@
 [![Join the chat at https://gitter.im/Dhii/di](https://badges.gitter.im/Dhii/di.svg)](https://gitter.im/Dhii/di?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![This package complies with Dhii standards](https://img.shields.io/badge/Dhii-Compliant-green.svg?style=flat-square)][Dhii]
 
-A simple, granular, standards-compliant dependency injection container and factory implementation.
+## Details
+Simple, granular, standards-compliant DI container implementations.
 
 ### Features
-- Complies with [container-interop v1.1](https://github.com/container-interop/container-interop/tree/1.1.0) specification.
-- Mostly supports the proposed [service-provider v0.3](https://github.com/container-interop/service-provider/tree/v0.3.0) standard.
-- Includes the [delegate lookup](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup-meta.md) feature, a.k.a. composite containers, with intuitive override order.
-- Uses some other [standards](https://github.com/Dhii/di-interface) published separately.
-- Granular approach, with an [implementation](https://github.com/Dhii/di-abstract) agnostic of concrete behaviour published separately: rely on this re-usable, tested, standards-compliant functionality to make your own container implementation.
-- [`ContainerInterface#get()`](https://github.com/container-interop/container-interop/blob/master/src/Interop/Container/ContainerInterface.php#L26) guaranteed to return same instance every time.
-- [`FactoryInterface#make()`](https://github.com/Dhii/di-interface/blob/master/src/FactoryInterface.php#L26) guaranteed to return new instance every time.
+- Is an implementation of the [PSR-11][] standard.
+- Uses some other [standards][dhii/data-container-interface] published separately.
+- Includes support for the [delegate lookup][] feature, a.k.a. composite containers, with intuitive override order.
+- Easily extensible and adaptable.
 
-### Disadvantages
-- Does not support the factories' 2nd parameter, i.e. [`$getPrevious`](https://github.com/container-interop/service-provider/blob/v0.3.0/src/ServiceProvider.php#L22).
-- Container and factory unified into one class (to be separated soon).
+### Classes
+- [`CachingContainer`][CachingContainer] - A simple container that resolves callable service definitions and caches the
+result, guaranteeing the same instance every time. [Cache sold separately][dhii/memoize-memory].
+- [`ContainerAwareCachingContainer`][ContainerAwareCachingContainer] - A container that is aware of another container,
+perhaps a parent one. Callable definitions will receive the top-most parent container of the chain when resolving. Use
+it with [`CompositeContainer`][CompositeContainer] to implement the 
+- [`AbstractBaseContainer`][AbstractBaseContainer] - Common functionality for DI containers that store services as internal data.
+- [`AbstractBaseCachingContainer`][AbstractBaseCachingContainer] - Common functionality for DI containers that cache resolved services.
+
 
 [Dhii]: https://github.com/Dhii/dhii
+[dhii/memoize-memory]: https://github.com/Dhii/memoize-memory
+[PSR-11]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md
+
+[delegate lookup]:                                      https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup-meta.md
+[dhii/data-container-interface]:                        https://packagist.org/packages/dhii/data-container-interface
+
+[AbstractBaseContainer]:                                src/AbstractBaseContainer.php
+[AbstractBaseCachingContainer]:                         src/AbstractBaseCachingContainer.php
+[CachingContainer]:                                     src/CachingContainer.php
+[ContainerAwareCachingContainer]:                       src/ContainerAwareCachingContainer.php
+
+[CompositeContainer]:                                   https://github.com/Dhii/composite-container/blob/develop/src/CompositeContainer.php
