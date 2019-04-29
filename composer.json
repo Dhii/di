@@ -21,6 +21,7 @@
         "dhii/data-container-interface": "^0.1 | ^0.2"
     },
     "require-dev": {
+        "slevomat/coding-standard": "~4.0",
         "phpunit/phpunit": "^8",
         "gmazzap/andrew": "^1.1",
         "codeclimate/php-test-reporter": "<=0.3.2",
