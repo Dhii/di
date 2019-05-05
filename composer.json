@@ -18,7 +18,8 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.2.17",
-        "dhii/data-container-interface": "^0.1 | ^0.2"
+        "dhii/data-container-interface": "^0.1 | ^0.2",
+        "container-interop/service-provider": "^0.4"
     },
     "require-dev": {
         "slevomat/coding-standard": "~4.0",
