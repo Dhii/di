@@ -5,9 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/test/functional" isTestSource="true" packagePrefix="Dhii\Di\FuncTest\" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit" isTestSource="true" packagePrefix="Dhii\Di\UnitTest\" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Dhii\Di\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codeclimate/php-test-reporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-container-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/service-provider" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/gmazzap/andrew" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzle/guzzle" />
