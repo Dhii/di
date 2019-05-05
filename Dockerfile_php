@@ -1,0 +1,9 @@
+FROM php:7.2.17
+
+VOLUME /opt/project
+
+RUN curl -sS https://getcomposer.org/installer | php \
+        && mv composer.phar /usr/local/bin/ \
+        && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
+
+WORKDIR /opt/project
