@@ -34,7 +34,8 @@
     "autoload-dev": {
         "psr-4": {
             "Dhii\\Di\\UnitTest\\": "test/unit",
-            "Dhii\\Di\\FuncTest\\": "test/functional"
+            "Dhii\\Di\\FuncTest\\": "test/functional",
+            "Dhii\\Di\\TestHelpers\\": "test/helpers"
         }
     },
     "provide": {
