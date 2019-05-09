@@ -24,7 +24,7 @@ class CompositeCachingServiceProviderTest extends TestCase
      *
      * @throws Exception If problem creating.
      */
-    protected function createSubject(?array $methods = [], ?array $dependencies = null)
+    protected function createSubject(array $methods = [], array $dependencies = null)
     {
         $mock = $this->createMockBuilder(TestSubject::class, $methods, $dependencies)
             ->getMock();
@@ -109,7 +109,7 @@ class CompositeCachingServiceProviderTest extends TestCase
             $this->assertArrayHasKey('three', $result);
 
             // Checking first (simple) extension
-            $this->assertIsCallable($result['one']);
+            $this->assertInternalType('callable', $result['one']);
             $this->assertEquals(
                 $prev1,
                 $result['one']($container, $prev1),
@@ -117,7 +117,7 @@ class CompositeCachingServiceProviderTest extends TestCase
             );
 
             // Checking second (compound) extension
-            $this->assertIsCallable($result['two']);
+            $this->assertInternalType('callable', $result['two']);
             $this->assertEquals(
                 $prev3,
                 $result['two']($container, $prev2),
@@ -125,7 +125,7 @@ class CompositeCachingServiceProviderTest extends TestCase
             );
 
             // Checking third (simple) extension
-            $this->assertIsCallable($result['three']);
+            $this->assertInternalType('callable', $result['three']);
             $this->assertEquals(
                 $prev4,
                 $result['three']($container, $prev4),

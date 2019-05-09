@@ -43,10 +43,13 @@ class ServiceProviderTest extends TestCase
         ];
         $subject = $this->createSubject([[], $extensions]);
 
-        $this->assertEqualsCanonicalizing(
+        $this->assertEquals(
             $extensions,
             $subject->getExtensions(),
-            'Wrong extensions retrieved'
+            'Wrong extensions retrieved',
+            0.0,
+            10,
+            true
         );
     }
 
@@ -63,10 +66,13 @@ class ServiceProviderTest extends TestCase
         ];
         $subject = $this->createSubject([$factories, []]);
 
-        $this->assertEqualsCanonicalizing(
+        $this->assertEquals(
             $factories,
             $subject->getFactories(),
-            'Wrong factories retrieved'
+            'Wrong factories retrieved',
+            0.0,
+            10,
+            true
         );
     }
 }

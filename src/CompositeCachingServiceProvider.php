@@ -2,14 +2,19 @@
 
 namespace Dhii\Di;
 
+use Dhii\Di\Util\StringTranslatingTrait;
 use Interop\Container\ServiceProviderInterface;
+use InvalidArgumentException;
 use Psr\Container\ContainerInterface;
+use Traversable;
 
 /**
  * A service provider that aggregates service definitions from other providers.
  */
 class CompositeCachingServiceProvider implements ServiceProviderInterface
 {
+    use StringTranslatingTrait;
+
     /**
      * @var iterable|callable[]
      */
@@ -28,8 +33,13 @@ class CompositeCachingServiceProvider implements ServiceProviderInterface
     /**
      * @param iterable|ServiceProviderInterface[] $providers
      */
-    public function __construct(iterable $providers)
+    public function __construct($providers)
     {
+        if (!is_array($providers) && !($providers instanceof Traversable)) {
+            throw new InvalidArgumentException(
+                $this->__('Providers list must be iterable')
+            );
+        }
         $this->providers = $providers;
     }
 
@@ -62,9 +72,9 @@ class CompositeCachingServiceProvider implements ServiceProviderInterface
      *
      * Caches them internally.
      *
-     * @param iterable|ServiceProviderInterface[] $providers The providers to index.
+     * @param ServiceProviderInterface[]|Traversable $providers The providers to index.
      */
-    protected function _indexProviderDefinitions(iterable $providers)
+    protected function _indexProviderDefinitions($providers)
     {
         $factories = [];
         $extensions = [];

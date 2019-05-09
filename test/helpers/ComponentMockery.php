@@ -25,7 +25,7 @@ trait ComponentMockery
      *
      * @throws Exception If problem creating.
      */
-    protected function createMockBuilder(string $className, ?array $methods = [], ?array $dependencies = null)
+    protected function createMockBuilder(string $className, array $methods = [], array $dependencies = null)
     {
         $builder = $this->getMockBuilder($className);
 
