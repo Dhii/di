@@ -3,14 +3,14 @@
 namespace Dhii\Di\FuncTest;
 
 use Dhii\Di\CompositeCachingServiceProvider as TestSubject;
-use Dhii\Di\TestHelpers\ComponentMockery;
+use Dhii\Di\TestHelpers\ComponentMockeryTrait;
 use Exception;
 use Interop\Container\ServiceProviderInterface;
 use PHPUnit\Framework\TestCase;
 
 class CompositeCachingServiceProviderTest extends TestCase
 {
-    use ComponentMockery;
+    use ComponentMockeryTrait;
 
     /**
      * @param ServiceProviderInterface[] $providers

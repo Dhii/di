@@ -10,7 +10,7 @@ use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Container\ContainerInterface;
 
-trait ComponentMockery
+trait ComponentMockeryTrait
 {
     /**
      * Creates a new instance of the test subject mock.
@@ -25,7 +25,7 @@ trait ComponentMockery
      *
      * @throws Exception If problem creating.
      */
-    protected function createMockBuilder(string $className, array $methods = [], array $dependencies = null)
+    protected function createMockBuilder(string $className, $methods = [], $dependencies = null)
     {
         $builder = $this->getMockBuilder($className);
 

@@ -3,14 +3,14 @@
 namespace Dhii\Di\FuncTest;
 
 use Dhii\Di\ServiceProvider as TestSubject;
-use Dhii\Di\TestHelpers\ComponentMockery;
+use Dhii\Di\TestHelpers\ComponentMockeryTrait;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
 class ServiceProviderTest extends TestCase
 {
-    use ComponentMockery;
+    use ComponentMockeryTrait;
 
     /**
      * Creates a new instance of the test subject.

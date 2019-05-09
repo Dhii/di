@@ -3,14 +3,14 @@
 namespace Dhii\Di\UnitTest;
 
 use Dhii\Di\CompositeCachingServiceProvider as TestSubject;
-use Dhii\Di\TestHelpers\ComponentMockery;
+use Dhii\Di\TestHelpers\ComponentMockeryTrait;
 use Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class CompositeCachingServiceProviderTest extends TestCase
 {
-    use ComponentMockery;
+    use ComponentMockeryTrait;
 
     /**
      * Creates a new instance of the test subject mock.
